@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Roboto:wght@300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Utilities */
+:root {
+  --pale-blue: #cfe2ff;
+}
+.fs-7 {
+  font-size: 0.85rem;
+}
+.w-fit {
+  width: fit-content;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.bg-paleBlue {
+  background-color: var(--pale-blue);
+}
+button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+.scale-hover:hover {
+  scale: 1.1;
+}
+
+/* Components */
+.page-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+.page-icon {
+  color: #0d6efd;
+  background-color: var(--pale-blue);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+.mobileHidden {
+  display: block;
+}
+.mobileVisible {
+  display: none;
+  padding: 0.5rem 0.6rem 0.4rem 0.6rem;
+}
+.ant-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Responsive */
+@media (max-width: 820px) {
+  table {
+    font-size: small;
+  }
+  .mobileHidden {
+    display: none;
+  }
+  .mobileVisible {
+    display: block;
+  }
+  .mobileVisible:hover {
+    background-color: whitesmoke;
+    color: #001529;
+    border-radius: 50%;
+  }
+  .ant-drawer .ant-drawer-close,
+  .ant-drawer .ant-drawer-title {
+    color: whitesmoke;
+  }
+}
