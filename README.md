@@ -1,23 +1,23 @@
-#### Project Management App
+# Project Management App
 
-# • **Description**: 
+### • **Description**: 
 
 A project management website is a platform that helps teams and organizations efficiently organize and track their projects. It provides features such as task management, team collaboration, document sharing, scheduling, and progress tracking. Users can create projects, assign tasks to team members, set deadlines, and monitor project status, enabling effective project planning and execution.
 
-# • **Tech stacks**: 
+### • **Tech stacks**: 
 
 Front-end: ReactJS, React Router, Ant design, Bootstrap, react-chartjs-2.
 
 Back-end: NodeJS, ExpressJS, MongoDB, Mongoose.
 
-# • **Demo account**: 
+### • **Demo account**: 
 
-[**👉👉👉deployment link👈👈👈**](https://pm-app-thangda.netlify.app)
+[**👉👉👉 deployment link 👈👈👈**](https://pm-app-thangda.netlify.app)
 
 `thang@test.com` (password: 11111111)
 
 
-# • **How to install and start this project (dev. version)**
+### • **How to install and start this project (dev. version)**
 
 `1` Open VS Code -> Open Root Folder.
 
@@ -46,7 +46,7 @@ npm run start-all
 (I have written more code in "backend/package.json", so only run terminal at backend, frontend side will be run at the same time)
 
 
-# • **Overview functions of the project**
+### • **Overview functions of the project**
 
 `1` [Database relationship diagram](https://app.creately.com/d/brSJ2VEHBQJ/view)
 
