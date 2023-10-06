@@ -46,7 +46,7 @@ npm run start-all
 
 ### • **Overview functions of the project**
 
-`1` [Database relationship diagram](https://app.creately.com/d/brSJ2VEHBQJ/view)
+`1` [Database relationship diagram](https://drive.google.com/file/d/1UXZE1pVig_FauXpUJyeaAQ-MLlxvm5i0/view?usp=sharing)
 
 `2` Authentication: form validation, notification on top of screen.
 
