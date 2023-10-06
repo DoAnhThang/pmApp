@@ -6,9 +6,9 @@ A project management website is a platform that helps teams and organizations ef
 
 ### • **Tech stacks**: 
 
-Front-end: ReactJS, React Router, Ant design, Bootstrap, react-chartjs-2.
+**Front-end**: ReactJS, React Router, Ant design, Bootstrap, react-chartjs-2.
 
-Back-end: NodeJS, ExpressJS, MongoDB, Mongoose.
+**Back-end**: NodeJS, ExpressJS, MongoDB, Mongoose.
 
 ### • **Demo account**: 
 
