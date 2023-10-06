@@ -4,7 +4,7 @@ import {
   BellOutlined,
   // MailOutlined,
 } from "@ant-design/icons";
-import { Badge, Drawer, List, Space } from "antd";
+import { Badge, Drawer, List, Space, Tooltip } from "antd";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import AppSider from "./AppSider";
@@ -64,16 +64,18 @@ function AppHeader({ isLogin, setIsLogin }) {
       {isLogin && (
         <>
           <Space className="d-flex gap-4 pt-3">
-            <Badge
-              count={todos.length}
-              offset={[5, 0]}
-              className="cursor-pointer"
-            >
-              <BellOutlined
-                className="fs-5 text-white"
-                onClick={() => setTodosOpen(true)}
-              />
-            </Badge>
+            <Tooltip title="Thông báo" placement="bottom">
+              <Badge
+                count={todos.length}
+                offset={[5, 0]}
+                className="cursor-pointer"
+              >
+                <BellOutlined
+                  className="fs-5 text-white"
+                  onClick={() => setTodosOpen(true)}
+                />
+              </Badge>
+            </Tooltip>
             {/* <Badge count={quotes.length} offset={[5, 0]} className="cursor-pointer">
               <MailOutlined
                 className="fs-5 text-white"
