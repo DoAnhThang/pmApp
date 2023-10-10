@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input, message } from "antd";
 import { SERVER_URL } from "../data/api";
@@ -13,6 +13,7 @@ const tailFormItemLayout = {
 };
 
 function Login({ setIsLogin, setActiveUser }) {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
 
   const postLogin = async (formValues) => {
@@ -31,6 +32,7 @@ function Login({ setIsLogin, setActiveUser }) {
         message.success(data.msg);
         setIsLogin(data.isAuth);
         setActiveUser(data.username);
+        navigate("/");
       } else {
         for (const key in data) {
           if (key === "email" || key === "password") {

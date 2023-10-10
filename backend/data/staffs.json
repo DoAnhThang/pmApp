@@ -1,0 +1,479 @@
+[{
+  "_id": {
+    "$oid": "651645c2c32900fabd984808"
+  },
+  "name": "Nguyễn Văn A",
+  "dob": "11/05/1990",
+  "phone_number": "0987654321",
+  "level": "Middle",
+  "tech_stacks": [
+    {
+      "tech_stack_id": {
+        "$oid": "651100acea4438aeec4c3d35"
+      },
+      "exp": "2",
+      "_id": {
+        "$oid": "651645c2c32900fabd984809"
+      }
+    },
+    {
+      "tech_stack_id": {
+        "$oid": "65110173ea4438aeec4c3d39"
+      },
+      "exp": "1",
+      "_id": {
+        "$oid": "651645c2c32900fabd98480a"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "$oid": "6516ee850d83daeaa9dcfe62"
+    },
+    {
+      "$oid": "6516efc40d83daeaa9dcfe74"
+    },
+    {
+      "$oid": "6516f03f0d83daeaa9dcfe7e"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T03:34:26.805Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:31:04.988Z"
+  },
+  "__v": 5,
+  "department": [
+    {
+      "$oid": "65162c38c2fba3edb73ae8dd"
+    }
+  ],
+  "gender": "male"
+},
+{
+  "_id": {
+    "$oid": "6516461dc32900fabd984819"
+  },
+  "name": "Trần Thị B",
+  "dob": "20/01/1985",
+  "phone_number": "0912345678",
+  "level": "Senior",
+  "tech_stacks": [
+    {
+      "tech_stack_id": {
+        "$oid": "65110173ea4438aeec4c3d39"
+      },
+      "exp": "3",
+      "_id": {
+        "$oid": "6516461dc32900fabd98481a"
+      }
+    },
+    {
+      "tech_stack_id": {
+        "$oid": "651101d3ea4438aeec4c3d3d"
+      },
+      "exp": "2",
+      "_id": {
+        "$oid": "6516461dc32900fabd98481b"
+      }
+    },
+    {
+      "tech_stack_id": {
+        "$oid": "65110307ea4438aeec4c3d45"
+      },
+      "exp": "1",
+      "_id": {
+        "$oid": "6516461dc32900fabd98481c"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "$oid": "6516efc40d83daeaa9dcfe74"
+    },
+    {
+      "$oid": "6516f03f0d83daeaa9dcfe7e"
+    },
+    {
+      "$oid": "6516f0860d83daeaa9dcfe88"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T03:35:57.895Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:31:16.890Z"
+  },
+  "__v": 3,
+  "department": [
+    {
+      "$oid": "65162c38c2fba3edb73ae8dd"
+    }
+  ],
+  "gender": "female"
+},
+{
+  "_id": {
+    "$oid": "65164665c32900fabd984829"
+  },
+  "name": "Lê Hoàng C",
+  "dob": "05/09/1988",
+  "phone_number": "0975123456",
+  "level": "Senior",
+  "tech_stacks": [
+    {
+      "tech_stack_id": {
+        "$oid": "651101d3ea4438aeec4c3d3d"
+      },
+      "exp": "3",
+      "_id": {
+        "$oid": "65164665c32900fabd98482a"
+      }
+    },
+    {
+      "tech_stack_id": {
+        "$oid": "65110307ea4438aeec4c3d45"
+      },
+      "exp": "2",
+      "_id": {
+        "$oid": "65164665c32900fabd98482b"
+      }
+    },
+    {
+      "tech_stack_id": {
+        "$oid": "65110379ea4438aeec4c3d49"
+      },
+      "exp": "1",
+      "_id": {
+        "$oid": "65164665c32900fabd98482c"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "$oid": "6516f03f0d83daeaa9dcfe7e"
+    },
+    {
+      "$oid": "6516f0860d83daeaa9dcfe88"
+    },
+    {
+      "$oid": "6516f0c20d83daeaa9dcfe92"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T03:37:09.740Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:31:27.785Z"
+  },
+  "__v": 3,
+  "department": [
+    {
+      "$oid": "65162c38c2fba3edb73ae8dd"
+    }
+  ],
+  "gender": "male"
+},
+{
+  "_id": {
+    "$oid": "651646b2c32900fabd98483d"
+  },
+  "name": "Phạm Thanh D",
+  "dob": "15/07/1992",
+  "phone_number": "0967891234",
+  "level": "Junior",
+  "tech_stacks": [
+    {
+      "tech_stack_id": {
+        "$oid": "65110307ea4438aeec4c3d45"
+      },
+      "exp": "1",
+      "_id": {
+        "$oid": "651646b2c32900fabd98483e"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "$oid": "6516f0860d83daeaa9dcfe88"
+    },
+    {
+      "$oid": "6516f0c20d83daeaa9dcfe92"
+    },
+    {
+      "$oid": "6516f1770d83daeaa9dcfe9c"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T03:38:26.600Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:31:41.033Z"
+  },
+  "__v": 4,
+  "department": [
+    {
+      "$oid": "65162c38c2fba3edb73ae8dd"
+    }
+  ],
+  "gender": "female"
+},
+{
+  "_id": {
+    "$oid": "651646e2c32900fabd984851"
+  },
+  "name": "Nguyễn Thị E",
+  "dob": "25/03/1995",
+  "phone_number": "0943216789",
+  "level": "Fresher",
+  "tech_stacks": [],
+  "projects": [
+    {
+      "$oid": "6516f1770d83daeaa9dcfe9c"
+    },
+    {
+      "$oid": "6516f0c20d83daeaa9dcfe92"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T03:39:14.121Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:30:15.487Z"
+  },
+  "__v": 4,
+  "department": [
+    {
+      "$oid": "65162c79c2fba3edb73ae8e2"
+    }
+  ],
+  "gender": "female"
+},
+{
+  "_id": {
+    "$oid": "6516473bc32900fabd984865"
+  },
+  "name": "Trần Văn F",
+  "dob": "02/11/1991",
+  "phone_number": "0901234567",
+  "level": "Middle",
+  "tech_stacks": [
+    {
+      "tech_stack_id": {
+        "$oid": "6511045eea4438aeec4c3d67"
+      },
+      "exp": "2",
+      "_id": {
+        "$oid": "6516473bc32900fabd984866"
+      }
+    },
+    {
+      "tech_stack_id": {
+        "$oid": "651104c1ea4438aeec4c3d6b"
+      },
+      "exp": "1",
+      "_id": {
+        "$oid": "6516473bc32900fabd984867"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "$oid": "6516f24b0d83daeaa9dcfebb"
+    },
+    {
+      "$oid": "6516f2230d83daeaa9dcfeae"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T03:40:43.978Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:30:06.041Z"
+  },
+  "__v": 2,
+  "department": [
+    {
+      "$oid": "65162c38c2fba3edb73ae8dd"
+    }
+  ],
+  "gender": "male"
+},
+{
+  "_id": {
+    "$oid": "65164842c32900fabd9848f6"
+  },
+  "name": "Lê Thị G",
+  "dob": "18/06/1987",
+  "phone_number": "0956789123",
+  "level": "Senior",
+  "tech_stacks": [
+    {
+      "tech_stack_id": {
+        "$oid": "651104c1ea4438aeec4c3d6b"
+      },
+      "exp": "3",
+      "_id": {
+        "$oid": "65164842c32900fabd9848f7"
+      }
+    },
+    {
+      "tech_stack_id": {
+        "$oid": "65127f590cc49c259148771d"
+      },
+      "exp": "2",
+      "_id": {
+        "$oid": "65164842c32900fabd9848f8"
+      }
+    },
+    {
+      "tech_stack_id": {
+        "$oid": "651280080cc49c2591487741"
+      },
+      "exp": "1",
+      "_id": {
+        "$oid": "65164842c32900fabd9848f9"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "$oid": "6516f4470d83daeaa9dcff55"
+    },
+    {
+      "$oid": "6516f42f0d83daeaa9dcff48"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T03:45:06.803Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:29:54.815Z"
+  },
+  "__v": 2,
+  "department": [
+    {
+      "$oid": "65162c38c2fba3edb73ae8dd"
+    }
+  ],
+  "gender": "female"
+},
+{
+  "_id": {
+    "$oid": "65164889c32900fabd984903"
+  },
+  "name": "Phạm Văn H",
+  "dob": "30/04/1993",
+  "phone_number": "0932145678",
+  "level": "Junior",
+  "tech_stacks": [
+    {
+      "tech_stack_id": {
+        "$oid": "65127f590cc49c259148771d"
+      },
+      "exp": "2",
+      "_id": {
+        "$oid": "65164889c32900fabd984904"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "$oid": "6516f45a0d83daeaa9dcff62"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T03:46:17.356Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:29:38.430Z"
+  },
+  "__v": 2,
+  "department": [
+    {
+      "$oid": "65162c79c2fba3edb73ae8e2"
+    }
+  ],
+  "gender": "male"
+},
+{
+  "_id": {
+    "$oid": "651648c8c32900fabd98490f"
+  },
+  "name": "Nguyễn Thị I",
+  "dob": "13/12/1986",
+  "phone_number": "0923456789",
+  "level": "Senior",
+  "tech_stacks": [
+    {
+      "tech_stack_id": {
+        "$oid": "6512822f0cc49c2591487759"
+      },
+      "exp": "3",
+      "_id": {
+        "$oid": "651648c8c32900fabd984910"
+      }
+    },
+    {
+      "tech_stack_id": {
+        "$oid": "6512828f0cc49c259148775d"
+      },
+      "exp": "2",
+      "_id": {
+        "$oid": "651648c8c32900fabd984911"
+      }
+    },
+    {
+      "tech_stack_id": {
+        "$oid": "6512835f0cc49c2591487765"
+      },
+      "exp": "1",
+      "_id": {
+        "$oid": "651648c8c32900fabd984912"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "$oid": "6516f4700d83daeaa9dcff74"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T03:47:20.490Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:29:29.382Z"
+  },
+  "__v": 2,
+  "department": [
+    {
+      "$oid": "65162c79c2fba3edb73ae8e2"
+    }
+  ],
+  "gender": "female"
+},
+{
+  "_id": {
+    "$oid": "651648f2c32900fabd984920"
+  },
+  "name": "Trương Văn J",
+  "dob": "09/08/1994",
+  "phone_number": "0967532145",
+  "level": "Fresher",
+  "tech_stacks": [],
+  "projects": [],
+  "createdAt": {
+    "$date": "2023-09-29T03:48:02.767Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-02T08:46:11.718Z"
+  },
+  "__v": 1,
+  "department": [
+    {
+      "$oid": "65162c79c2fba3edb73ae8e2"
+    }
+  ],
+  "gender": "male"
+}]

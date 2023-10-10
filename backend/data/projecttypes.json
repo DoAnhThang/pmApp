@@ -1,0 +1,85 @@
+[{
+  "_id": {
+    "$oid": "650f9dd91c98531e12d15378"
+  },
+  "name": "eCommerce",
+  "short_desc": "Web bán hàng",
+  "long_desc": "Website thương mại điện tử là trang thông tin điện tử được thiết lập để phục vụ một phần hoặc toàn bộ quy trình của hoạt động mua bán hàng hóa hay cung ứng dịch vụ, từ trưng bày giới thiệu hàng hóa, dịch vụ đến giao kết hợp đồng, cung ứng dịch vụ, thanh toán và dịch vụ sau bán hàng.",
+  "priority": "1",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-09-24T02:24:25.849Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-24T02:24:25.849Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "650f9eda1c98531e12d15380"
+  },
+  "name": "AI",
+  "short_desc": "Chatbot AI",
+  "long_desc": "Chatbot AI là một chương trình kết hợp với trí tuệ nhân tạo (AI) và ngôn ngữ lập trình NLP để tương tác với con người. Công cụ này thay thế cho nhân viên để trả lời những gì khách hàng thắc mắc. Nguyên tắc hoạt động của chatbot AI theo 2 bước cốt lõi là phân tích yêu cầu của người dùng và gửi lại phản hồi.",
+  "priority": "2",
+  "status": "Inactive",
+  "createdAt": {
+    "$date": "2023-09-24T02:28:42.604Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-24T02:28:42.604Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "650f9f591c98531e12d15384"
+  },
+  "name": "Educational",
+  "short_desc": "Web giáo dục và đào tạo",
+  "long_desc": "Trang web giáo dục là một loại trang web được tạo ra nhằm cung cấp thông tin, tài liệu, khóa học, và các nguồn học tập khác cho người học và người tham gia quá trình học tập. Mục tiêu của trang web giáo dục là cung cấp môi trường học tập trực tuyến, cho phép người học tiếp cận kiến thức từ mọi nơi có kết nối internet.",
+  "priority": "3",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-09-24T02:30:49.744Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-24T02:30:49.744Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "650f9fbe1c98531e12d1538a"
+  },
+  "name": "Social Media",
+  "short_desc": "Web mạng xã hội",
+  "long_desc": "Mạng xã hội là hệ thống thông tin cung cấp cho cộng đồng người sử dụng mạng các dịch vụ lưu trữ, cung cấp, sử dụng, tìm kiếm, chia sẻ và trao đổi thông tin với nhau, bao gồm dịch vụ tạo trang thông tin điện tử cá nhân, diễn đàn (forum), trò chuyện (chat) trực tuyến, chia sẻ âm thanh, hình ảnh và các hình thức dịch vụ tương tự khác.",
+  "priority": "4",
+  "status": "Inactive",
+  "createdAt": {
+    "$date": "2023-09-24T02:32:30.168Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-24T02:32:30.168Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "650f9fff1c98531e12d1538e"
+  },
+  "name": "Informational",
+  "short_desc": "Web tin tức",
+  "long_desc": "Trang web tin tức được thiết kế để cung cấp cho người dùng thông tin thực tế cũng như một nguồn dữ liệu và thông tin tuyệt vời. Bách khoa toàn thư, trang web tin tức và hơn thế nữa - tất cả chúng đều có nội dung phong phú bao gồm nhiều chủ đề từ lịch sử đến công nghệ và những thứ tương tự. Tương tự với các trang web thông tin như trang wiki, các trang web thông tin có thể cung cấp câu trả lời cho hầu hết mọi truy vấn, có các thanh tìm kiếm giúp khách truy cập tìm thấy thứ họ cần một cách nhanh chóng.",
+  "priority": "3",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-09-24T02:33:35.527Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-24T02:33:35.527Z"
+  },
+  "__v": 0
+}]

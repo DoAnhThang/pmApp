@@ -1,0 +1,255 @@
+[{
+  "_id": {
+    "$oid": "65162c38c2fba3edb73ae8dd"
+  },
+  "name": "R&D",
+  "feature": "Nghiên cứu và phát triển",
+  "tech_stacks": [
+    {
+      "$oid": "651100acea4438aeec4c3d35"
+    },
+    {
+      "$oid": "65110173ea4438aeec4c3d39"
+    },
+    {
+      "$oid": "651101d3ea4438aeec4c3d3d"
+    }
+  ],
+  "projects": [
+    {
+      "$oid": "6516f03f0d83daeaa9dcfe7e"
+    },
+    {
+      "$oid": "6516ee850d83daeaa9dcfe62"
+    },
+    {
+      "$oid": "6516f0860d83daeaa9dcfe88"
+    }
+  ],
+  "staffs": [
+    {
+      "$oid": "65164842c32900fabd9848f6"
+    },
+    {
+      "$oid": "6516473bc32900fabd984865"
+    },
+    {
+      "$oid": "651645c2c32900fabd984808"
+    },
+    {
+      "$oid": "6516461dc32900fabd984819"
+    },
+    {
+      "$oid": "65164665c32900fabd984829"
+    },
+    {
+      "$oid": "651646b2c32900fabd98483d"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T01:45:28.882Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:31:41.608Z"
+  },
+  "__v": 19
+},
+{
+  "_id": {
+    "$oid": "65162c79c2fba3edb73ae8e2"
+  },
+  "name": "UI/UX",
+  "feature": "Thiết kế UI/UX",
+  "tech_stacks": [
+    {
+      "$oid": "65127f590cc49c259148771d"
+    },
+    {
+      "$oid": "651280080cc49c2591487741"
+    },
+    {
+      "$oid": "651281280cc49c259148774f"
+    }
+  ],
+  "projects": [
+    {
+      "$oid": "6516ee850d83daeaa9dcfe62"
+    }
+  ],
+  "staffs": [
+    {
+      "$oid": "651648f2c32900fabd984920"
+    },
+    {
+      "$oid": "651648c8c32900fabd98490f"
+    },
+    {
+      "$oid": "65164889c32900fabd984903"
+    },
+    {
+      "$oid": "651646e2c32900fabd984851"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T01:46:33.255Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:30:16.056Z"
+  },
+  "__v": 12
+},
+{
+  "_id": {
+    "$oid": "65162cbec2fba3edb73ae8e7"
+  },
+  "name": "FE",
+  "feature": "Phát triển Front-end",
+  "tech_stacks": [
+    {
+      "$oid": "65110307ea4438aeec4c3d45"
+    },
+    {
+      "$oid": "65110379ea4438aeec4c3d49"
+    },
+    {
+      "$oid": "6511045eea4438aeec4c3d67"
+    },
+    {
+      "$oid": "651104c1ea4438aeec4c3d6b"
+    }
+  ],
+  "projects": [
+    {
+      "$oid": "6516ee850d83daeaa9dcfe62"
+    }
+  ],
+  "staffs": [],
+  "createdAt": {
+    "$date": "2023-09-29T01:47:42.266Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-03T02:31:56.044Z"
+  },
+  "__v": 4
+},
+{
+  "_id": {
+    "$oid": "65162ce2c2fba3edb73ae8ec"
+  },
+  "name": "BE",
+  "feature": "Phát triển Back-end",
+  "tech_stacks": [
+    {
+      "$oid": "6512822f0cc49c2591487759"
+    },
+    {
+      "$oid": "6512828f0cc49c259148775d"
+    },
+    {
+      "$oid": "6512835f0cc49c2591487765"
+    }
+  ],
+  "projects": [
+    {
+      "$oid": "6516ee850d83daeaa9dcfe62"
+    }
+  ],
+  "staffs": [],
+  "createdAt": {
+    "$date": "2023-09-29T01:48:18.990Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-03T02:31:56.044Z"
+  },
+  "__v": 5
+},
+{
+  "_id": {
+    "$oid": "65162d24c2fba3edb73ae8f1"
+  },
+  "name": "QA/QC",
+  "feature": "Đảm bảo và kiểm soát chất lượng",
+  "tech_stacks": [
+    {
+      "$oid": "65127f590cc49c259148771d"
+    },
+    {
+      "$oid": "651281280cc49c259148774f"
+    },
+    {
+      "$oid": "6512822f0cc49c2591487759"
+    }
+  ],
+  "projects": [
+    {
+      "$oid": "6516ee850d83daeaa9dcfe62"
+    }
+  ],
+  "staffs": [],
+  "createdAt": {
+    "$date": "2023-09-29T01:49:24.387Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-03T02:31:56.044Z"
+  },
+  "__v": 5
+},
+{
+  "_id": {
+    "$oid": "65162d49c2fba3edb73ae8f6"
+  },
+  "name": "PM",
+  "feature": "Quản lý dự án",
+  "tech_stacks": [
+    {
+      "$oid": "651280080cc49c2591487741"
+    }
+  ],
+  "projects": [
+    {
+      "$oid": "6516ee850d83daeaa9dcfe62"
+    }
+  ],
+  "staffs": [],
+  "createdAt": {
+    "$date": "2023-09-29T01:50:01.424Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-03T02:31:56.044Z"
+  },
+  "__v": 4
+},
+{
+  "_id": {
+    "$oid": "65162d76c2fba3edb73ae8fe"
+  },
+  "name": "DU",
+  "feature": "Phân tích, thiết kế và triển khai",
+  "tech_stacks": [
+    {
+      "$oid": "651104c1ea4438aeec4c3d6b"
+    },
+    {
+      "$oid": "6511045eea4438aeec4c3d67"
+    },
+    {
+      "$oid": "65110379ea4438aeec4c3d49"
+    },
+    {
+      "$oid": "65110307ea4438aeec4c3d45"
+    }
+  ],
+  "projects": [
+    {
+      "$oid": "6516ee850d83daeaa9dcfe62"
+    }
+  ],
+  "staffs": [],
+  "createdAt": {
+    "$date": "2023-09-29T01:50:46.149Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-03T02:31:56.044Z"
+  },
+  "__v": 2
+}]

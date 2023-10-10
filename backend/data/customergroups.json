@@ -1,0 +1,85 @@
+[{
+  "_id": {
+    "$oid": "651109a0ea4438aeec4c3d7d"
+  },
+  "name": "Doanh nghiệp lớn",
+  "short_desc": "Các doanh nghiệp lớn là các tổ chức quy mô lớn, có nhiều ngành nghề hoạt động. Họ yêu cầu giải pháp công nghệ thông tin phức tạp và tối ưu để quản lý các hoạt động kinh doanh, tăng cường hiệu suất và đáp ứng yêu cầu bảo mật cao.",
+  "long_desc": "Các doanh nghiệp lớn bao gồm các công ty đa quốc gia, các tổ chức chính phủ và các tổ chức phi lợi nhuận trên quy mô quốc gia hoặc toàn cầu.\n\nVới quy mô và phạm vi hoạt động lớn, họ tìm kiếm giải pháp công nghệ thông tin phức tạp để quản lý các phần mềm, hạ tầng mạng, dữ liệu và quá trình kinh doanh.\n\nHọ cần các giải pháp mạnh mẽ, mở rộng và bảo mật cao để đáp ứng nhu cầu và yêu cầu của môi trường kinh doanh phức tạp.",
+  "priority": "1",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-09-25T04:16:32.738Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-25T04:16:32.738Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65110a4aea4438aeec4c3d81"
+  },
+  "name": "Doanh nghiệp vừa và nhỏ",
+  "short_desc": "Doanh nghiệp vừa và nhỏ cần các giải pháp công nghệ thông tin đơn giản để quản lý hoạt động kinh doanh và tăng cường hiệu suất.",
+  "long_desc": "Doanh nghiệp vừa và nhỏ bao gồm cả các cửa hàng, công ty khởi nghiệp và doanh nghiệp gia đình. Các doanh nghiệp này sử dụng các giải pháp công nghệ thông tin để quản lý việc bán hàng, lưu trữ thông tin khách hàng, quản lý tài chính và triển khai chiến lược marketing.\n\nHọ cần các công cụ và giải pháp dễ sử dụng và hiệu quả để đáp ứng nhu cầu kinh doanh của mình và tối ưu hóa tổ chức.",
+  "priority": "2",
+  "status": "Inactive",
+  "createdAt": {
+    "$date": "2023-09-25T04:19:22.012Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-25T04:19:22.012Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65110aacea4438aeec4c3d95"
+  },
+  "name": "Ngành bán lẻ và thương mại điện tử",
+  "short_desc": "Là nhóm khách hàng đang có sự phát triển nhanh chóng. Họ cần các giải pháp công nghệ thông tin để quản lý kho hàng, quản lý đơn hàng, tương tác với khách hàng và nâng cao trải nghiệm mua sắm trực tuyến.",
+  "long_desc": "Ngành bán lẻ và thương mại điện tử bao gồm các doanh nghiệp tham gia vào hoạt động bán hàng, đặc biệt là bán hàng trực tuyến. Họ cần công nghệ để quản lý và tối ưu hóa quy trình đặt hàng, quản lý kho hàng, phân phối, thanh toán và quản lý khách hàng.\n\nKhách hàng trong ngành này đòi hỏi giải pháp tăng cường trải nghiệm mua sắm trực tuyến, có khả năng tích hợp với hệ thống thanh toán và các công cụ marketing để tạo ra môi trường mua sắm thuận tiện và an toàn cho khách hàng.",
+  "priority": "3",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-09-25T04:21:00.921Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-25T04:21:00.921Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65110b0bea4438aeec4c3d99"
+  },
+  "name": "Ngành y tế",
+  "short_desc": "Các bệnh viện, cơ sở y tế và các tổ chức liên quan cần sử dụng công nghệ thông tin để quản lý hồ sơ bệnh nhân, cải thiện quy trình công việc và tăng cường chất lượng chăm sóc y tế.",
+  "long_desc": "Nhóm khách hàng ngành y tế bao gồm bệnh viện, cơ sở y tế, phòng khám, phòng chẩn đoán hình ảnh và các tổ chức y tế khác. Họ cần sử dụng các giải pháp công nghệ thông tin để quản lý hồ sơ bệnh nhân, đặt lịch hẹn, giao tiếp nội bộ, theo dõi khoa học dữ liệu và cải thiện quy trình công việc trong ngành y tế.\n\nCác giải pháp này bao gồm hệ thống quản lý hồ sơ bệnh nhân, hệ thống thông tin y tế, hệ thống giao tiếp nội bộ và mạng lưới y tế điện tử. Mục tiêu của công nghệ thông tin trong ngành y tế là tối ưu hóa chất lượng chăm sóc bệnh nhân, tăng cường hiệu suất và khả năng tiếp cận dịch vụ y tế, và tăng cường năng lực phân tích dữ liệu để nghiên cứu y học và dự đoán xu hướng.",
+  "priority": "4",
+  "status": "Inactive",
+  "createdAt": {
+    "$date": "2023-09-25T04:22:35.136Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-25T04:22:35.136Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65110b66ea4438aeec4c3d9d"
+  },
+  "name": "Ngành giáo dục",
+  "short_desc": "Cần các giải pháp công nghệ thông tin để quản lý học sinh, cải thiện quy trình giảng dạy và hỗ trợ hệ thống học trực tuyến.",
+  "long_desc": "Nhóm khách hàng ngành giáo dục bao gồm trường học các cấp, đại học, tổ chức đào tạo và các tổ chức giáo dục khác. Họ cần sử dụng các giải pháp công nghệ thông tin để quản lý thông tin học sinh, định lịch giảng dạy, quản lý tài liệu và hỗ trợ hệ thống học trực tuyến.\n\nCác giải pháp công nghệ thông tin trong giáo dục có thể bao gồm hệ thống quản lý học sinh, hệ thống quản lý nội dung giảng dạy, hệ thống lịch trình giảng dạy, hệ thống học trực tuyến và hệ thống giao tiếp với phụ huynh.\n\nMục tiêu của công nghệ thông tin trong ngành giáo dục là cải thiện quy trình giảng dạy, tăng cường tương tác và hỗ trợ học trực tuyến, cũng như cung cấp các công cụ quản lý hiệu quả cho các tổ chức giáo dục.",
+  "priority": "3",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-09-25T04:24:06.532Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-25T04:24:06.532Z"
+  },
+  "__v": 0
+}]

@@ -12,7 +12,7 @@ import { SERVER_URL } from "./data/api";
 function App() {
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(false);
-  const [activeUser, setActiveUser] = useState("anonymous");
+  const [activeUser, setActiveUser] = useState("");
 
   const getAuth = async () => {
     try {
@@ -26,7 +26,7 @@ function App() {
         setActiveUser(data.username);
       } else {
         message.error(data.msg);
-        navigate("/");
+        navigate("/login");
       }
     } catch (err) {
       console.error("getAuth: ", err);
@@ -40,8 +40,8 @@ function App() {
     <Space direction="vertical" className="w-100" size={[0, 48]}>
       <Layout>
         <Layout.Header
-          className="d-flex justify-content-between bg-gradient text-white ps-3 pe-5"
-          style={{ height: "3rem" }}
+          className="d-flex justify-content-between bg-gradient text-white ps-3 pe-5 position-sticky top-0"
+          style={{ height: "3rem", zIndex: 100 }}
         >
           <AppHeader isLogin={isLogin} setIsLogin={setIsLogin} />
         </Layout.Header>
@@ -50,7 +50,7 @@ function App() {
             <AppSider isLogin={isLogin} setIsLogin={setIsLogin} />
           </Layout.Sider>
           <Layout>
-            <Layout.Content>
+            <Layout.Content className="position-relative">
               <AppContent
                 isLogin={isLogin}
                 setIsLogin={setIsLogin}

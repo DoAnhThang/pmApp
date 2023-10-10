@@ -1,0 +1,208 @@
+[{
+  "_id": {
+    "$oid": "651100acea4438aeec4c3d35"
+  },
+  "name": "ReactJS",
+  "short_desc": "Thư viện JavaScript phát triển bởi Facebook, tập trung vào xây dựng giao diện người dùng động và tương tác",
+  "long_desc": "Ra đời năm 2013, ReactJS là một thư viện JavaScript mã nguồn mở được phát triển bởi Facebook. Nó là một công nghệ phổ biến trong việc xây dựng giao diện người dùng phức tạp và tương tác trên các ứng dụng web.\n\nReactJS sử dụng mô hình Virtual DOM, nơi các thay đổi trong giao diện được áp dụng vào một phiên bản trừu tượng của DOM. Khi có thay đổi, ReactJS sẽ so sánh phiên bản trừu tượng với phiên bản hiện tại của DOM và chỉ áp dụng các thay đổi tương ứng. Điều này giúp cải thiện hiệu suất và tốc độ render của ứng dụng.\n\nReactJS sử dụng cú pháp JSX để tạo ra các thành phần giao diện. JSX là một sự kết hợp của JavaScript và HTML, giúp viết mã nguồn dễ đọc và dễ hiểu. ReactJS cung cấp một hệ thống mạnh mẽ cho việc quản lý trạng thái ứng dụng và quản lý dữ liệu, giúp phát triển ứng dụng linh hoạt và dễ bảo trì.\n\nReactJS cũng hỗ trợ các tính năng như component-based development, one-way data binding, routing, và testing. Với cộng đồng phát triển lớn và nhiều tài liệu hướng dẫn, ReactJS hỗ trợ các nhà phát triển trong việc xây dựng các ứng dụng web chất lượng cao và dễ dàng mở rộng.",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-09-25T03:38:20.375Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-26T06:51:53.170Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65110173ea4438aeec4c3d39"
+  },
+  "name": "AngularJS",
+  "short_desc": "Framework JavaScript phát triển bởi Google, dùng để xây dựng các ứng dụng web phức tạp và đáng tin cậy",
+  "long_desc": "Ra đời năm 2010, AngularJS là một framework JavaScript mã nguồn mở phát triển bởi Google. Nó cung cấp một cách tiếp cận mạnh mẽ để xây dựng ứng dụng web động và đáng tin cậy.\n\nVới AngularJS, các nhà phát triển có thể sử dụng các directives để mở rộng HTML và xây dựng các thành phần tương tác. Điều này cho phép xây dựng giao diện người dùng phong phú và linh hoạt.\n\nAngularJS cung cấp một mô hình dữ liệu kéo theo động (two-way data binding), giúp giữ cho dữ liệu và giao diện người dùng được đồng bộ tự động. AngularJS áp dụng mô hình thiết kế MVC (Model-View-Controller), nơi Model đại diện cho dữ liệu, View là giao diện người dùng và Controller là logic xử lý. Điều này giúp tách biệt các thành phần trong ứng dụng và dễ dàng quản lý, bảo trì.\n\nAngularJS cũng đi kèm với các tính năng như routing, dependency injection, validation, và testing. Nó cung cấp một cơ sở cho việc xây dựng ứng dụng web phức tạp và linh hoạt. Với cộng đồng phát triển lớn và sự hỗ trợ từ Google, AngularJS cung cấp nhiều tài liệu, hướng dẫn và tài nguyên phong phú cho nhà phát triển để xây dựng ứng dụng web đáng tin cậy và dễ dàng mở rộng.",
+  "status": "Inactive",
+  "createdAt": {
+    "$date": "2023-09-25T03:41:39.311Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-26T06:51:57.558Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651101d3ea4438aeec4c3d3d"
+  },
+  "name": "Vue.js",
+  "short_desc": "Framework JavaScript linh hoạt và dễ học, giúp xây dựng giao diện người dùng phức tạp một cách dễ dàng",
+  "long_desc": "Ra đời năm 2014, Vue.js là một framework JavaScript mã nguồn mở, được phát triển bởi Evan You. Nó được thiết kế để xây dựng các ứng dụng web tương tác và có một cộng đồng phát triển rộng lớn.\n\nVue.js chú trọng vào hiệu suất, khả năng mở rộng và tính đáng tin cậy. Nó kết hợp cấu trúc Component-Based, trong đó các thành phần giao diện được xây dựng lại từ các thành phần con nhỏ hơn. Điều này giúp tăng tính tái sử dụng và sự rõ ràng trong việc quản lý mã nguồn.\n\nMột trong những đặc điểm nổi bật của Vue.js là cú pháp tường minh và dễ hiểu đồng thời có khả năng mở rộng. Vue.js sử dụng cú pháp tương tự HTML (template) để xây dựng giao diện người dùng, và hỗ trợ cơ chế reactive, cho phép dữ liệu và giao diện tự động đồng bộ.\n\nVue.js cung cấp một hệ thống mạnh mẽ cho việc quản lý trạng thái ứng dụng và hỗ trợ các tính năng như routing, animation, data binding, và testing. Ngoài ra, Vue.js cũng có khả năng tích hợp dễ dàng với các dự án có sẵn và thư viện bên thứ ba.\n\nVới tài liệu hướng dẫn phong phú và cộng đồng phát triển năng động, Vue.js trở thành lựa chọn phổ biến cho các nhà phát triển khi xây dựng các ứng dụng web nhỏ đến trung bình, đáp ứng yêu cầu về hiệu suất và độ tin cậy.",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-09-25T03:43:15.700Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-26T06:52:00.477Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65110307ea4438aeec4c3d45"
+  },
+  "name": "EmberJS",
+  "short_desc": "Framework JavaScript mã nguồn mở, dùng để xây dựng các ứng dụng web phức tạp với kiến trúc mạnh mẽ và sự nhất quán",
+  "long_desc": "Bắt đầu phát hành vào năm 2011, tên thật là SproutCore MVC framework, EmberJS là một framework JavaScript mã nguồn mở được thiết kế để xây dựng các ứng dụng web phức tạp với mô hình thiết kế MVC (Model-View-Controller) sắc nét. Nó giúp các nhà phát triển tập trung vào việc quản lý dữ liệu và cung cấp một kiến trúc mạnh mẽ và nhất quán cho ứng dụng.\n\nVới EmberJS, các thành phần của ứng dụng được tổ chức theo các thành phần con, gọi là \"components\", giúp dễ dàng tái sử dụng và duy trì. Nó cung cấp một template system mạnh mẽ để xây dựng giao diện người dùng và kết hợp các thành phần trong ứng dụng.\n\nEmberJS cũng hỗ trợ routing, cho phép quản lý các trang và điều hướng giữa chúng một cách dễ dàng. Nó cung cấp các tính năng như data binding hai chiều, xử lý sự kiện, và quản lý trạng thái ứng dụng. EmberJS cũng có khả năng kiểm thử mạnh mẽ, giúp đảm bảo chất lượng và độ tin cậy của ứng dụng.\n\nMột trong những ưu điểm của EmberJS là sự nhất quán. Các quy ước được định nghĩa rõ ràng, giúp cho các nhà phát triển dễ dàng hiểu và làm việc trên cùng một dự án. EmberJS cũng có một cộng đồng phát triển tích cực và nhiều tài liệu hướng dẫn, làm cho việc học và phát triển EmberJS trở nên dễ dàng.",
+  "status": "Inactive",
+  "createdAt": {
+    "$date": "2023-09-25T03:48:23.175Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-26T06:52:03.432Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65110379ea4438aeec4c3d49"
+  },
+  "name": "Angular 2+",
+  "short_desc": "Framework JavaScript mã nguồn mở, được sử dụng để xây dựng các ứng dụng web phức tạp và đáng tin cậy",
+  "long_desc": "Ra đời năm 2016, Angular 2+ là một framework JavaScript mã nguồn mở được phát triển và duy trì bởi Google. Đây là phiên bản tiếp theo của AngularJS (Angular 1.x) và đã trải qua rất nhiều cải tiến và thay đổi so với phiên bản trước đó.\n\nAngular 2+ áp dụng mô hình kiến trúc component-based, nơi mọi thành phần của ứng dụng web được tổ chức thành các thành phần riêng biệt và tái sử dụng. Nó sử dụng TypeScript, một phiên bản siêu cú pháp của JavaScript, giúp viết mã nguồn dễ đọc, dễ bảo trì và dễ mở rộng hơn.\n\nVới Angular 2+, các tính năng như two-way data binding, dependency injection, routing, forms handling và testing được tích hợp sẵn. Nó cung cấp một bộ công cụ và kỹ thuật tiên tiến cho việc xây dựng các ứng dụng web phức tạp, đáng tin cậy và hiệu suất cao.\n\nMột trong những điểm mạnh của Angular 2+ là khả năng tối ưu hiệu năng thông qua cơ chế Change Detection, nơi chỉ cập nhật các thành phần thay đổi thay vì toàn bộ trang. Điều này giúp tăng tốc độ render và cải thiện hiệu suất của ứng dụng.\n\nThêm vào đó, Angular 2+ có cộng đồng lớn và sự hỗ trợ mạnh mẽ từ Google, đảm bảo cung cấp các tài liệu, hướng dẫn và tài nguyên phong phú để giúp nhà phát triển xây dựng và duy trì các ứng dụng web phức tạp.",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-09-25T03:50:17.355Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-26T06:51:43.862Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6511045eea4438aeec4c3d67"
+  },
+  "name": "Svelte",
+  "short_desc": "Svelte là một framework JavaScript động, mã nguồn mở, và nhẹ nhàng, giúp tạo ra các ứng dụng web chạy nhanh và hiệu suất cao",
+  "long_desc": "Ra mắt năm 2016, Svelte là một framework JavaScript động mã nguồn mở dành cho việc xây dựng giao diện người dùng trên web. Nó được thiết kế để tạo ra mã nguồn tĩnh và chạy nhanh, hướng tới việc tăng cường hiệu suất của ứng dụng web.\n\nTrong trình biên dịch của Svelte, mã nguồn Svelte sẽ được biến đổi thành mã JavaScript tối ưu tại thời gian biên dịch. Điều này cho phép trình duyệt tải và chạy ứng dụng với lợi ích cực kỳ nhanh chóng. Thay vì sử dụng Virtual DOM, Svelte trực tiếp thay đổi DOM thực tế khi dữ liệu thay đổi, giúp giảm tải và tăng tốc độ hiển thị.\n\nSvelte có cú pháp sử dụng rõ ràng, dễ hiểu và dễ học. Nó cung cấp một cấu trúc Component-Based, giúp tách biệt giao diện người dùng thành các thành phần nhỏ hơn, dễ dàng quản lý và tái sử dụng. Svelte hỗ trợ các tính năng như reactive declarations, reactivity chặt chẽ, và định nghĩa custom animations.\n\nMô hình hiện đại của Svelte giúp việc phát triển ứng dụng web trở nên dễ dàng và nhanh chóng. Framework này phù hợp cho việc xây dựng ứng dụng web nhỏ đến trung bình, với sự nhẹ nhàng và hiệu quả của mình. Svelte cũng có một cộng đồng phát triển lớn, cung cấp tài liệu hướng dẫn và thư viện phong phú.",
+  "status": "Inactive",
+  "createdAt": {
+    "$date": "2023-09-25T03:54:06.451Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-26T06:51:40.215Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651104c1ea4438aeec4c3d6b"
+  },
+  "name": "Next.js",
+  "short_desc": "Framework JavaScript mã nguồn mở, xây dựng trên nền tảng React, được sử dụng để xây dựng các ứng dụng web tối ưu cho SEO và có hiệu suất cao",
+  "long_desc": "Ra mắt vào năm 2016, Next.js là một framework JavaScript mã nguồn mở, được phát triển bởi Vercel. Nó được xây dựng trên cơ sở của React và cung cấp các tính năng hỗ trợ Server-Side Rendering (SSR) và Static Site Generation (SSG) cho việc xây dựng các ứng dụng web.\n\nNext.js tạo ra một môi trường phát triển dễ dùng và mạnh mẽ cho việc xây dựng ứng dụng web phức tạp. Nó cung cấp các hàm tiện ích phù hợp cho routing, server-side rendering, code-splitting tự động và quản lý tài nguyên tĩnh.\n\nVới SSR, Next.js cho phép dự án render trang web trước trên máy chủ, giúp cải thiện thời gian tải trang và khả năng tìm kiếm của các công cụ tìm kiếm (SEO). Ngoài ra, SSG cho phép xây dựng các trang tĩnh trước và tải chúng với tốc độ cao.\n\nNext.js hỗ trợ các tính năng như hot reloading (tải lại nhanh), tối ưu hóa build và deployment, và tích hợp dễ dàng với các thư viện phổ biến khác như Tailwind CSS và TypeScript.\n\nVới sự hỗ trợ mạnh mẽ từ cộng đồng phát triển và sự tăng trưởng nhanh chóng, Next.js trở thành một trong những lựa chọn hàng đầu cho việc xây dựng các ứng dụng web đa dạng, đáp ứng yêu cầu về hiệu suất cao và tối ưu cho SEO.",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-09-25T03:55:45.347Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-26T06:51:35.168Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65127f590cc49c259148771d"
+  },
+  "name": "Adobe XD",
+  "short_desc": "Công cụ thiết kế UI/UX được phát triển bởi Adobe",
+  "long_desc": "Adobe XD là một công cụ đáng tin cậy và phổ biến trong việc thiết kế giao diện người dùng và trải nghiệm người dùng. Với giao diện đơn giản và trực quan, nó cho phép người dùng tạo và thiết kế các bản thiết kế UI/UX một cách dễ dàng và nhanh chóng.\n\nAdobe XD cung cấp các tính năng như bôi đen, tỉ mỉ căn chỉnh và khớp nối, các công cụ vẽ, các thành phần tái sử dụng, và hỗ trợ tích hợp với các công cụ khác như Photoshop và Illustrator. Nó cho phép tạo các bản thiết kế tĩnh và tương tác, tạo các luồng công việc và các trạng thái khác nhau của ứng dụng, và thậm chí mô phỏng các tương tác trực tiếp trên giao diện.\n\nAdobe XD cũng cung cấp các tính năng hợp tác cho phép các thành viên trong nhóm làm việc cùng nhau trong thời gian thực, chia sẻ và đồng bộ hóa các bản thiết kế, và nhận phản hồi từ nhau. Nó cũng cho phép chia sẻ bản phác thảo với khách hàng hoặc các bên liên quan để thu thập ý kiến phản hồi.",
+  "status": "Inactive",
+  "createdAt": {
+    "$date": "2023-09-26T06:51:05.479Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-26T06:54:38.243Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651280080cc49c2591487741"
+  },
+  "name": "Sketch",
+  "short_desc": "Công cụ thiết kế UI/UX phổ biến dành cho các nền tảng Mac",
+  "long_desc": "Sketch là một công cụ mạnh mẽ và linh hoạt để thiết kế giao diện người dùng cho các ứng dụng di động và web. Với giao diện đơn giản và tập trung vào thiết kế giao diện, nó trở thành một trong những công cụ phổ biến nhất trong cộng đồng thiết kế UI/UX.\n\nSketch cho phép tạo và thiết kế các bản thiết kế UI/UX một cách nhanh chóng và dễ dàng. Nó cung cấp các tính năng như công cụ vẽ vector, tạo component để dễ dàng tái sử dụng, quản lý biểu đồ màu sắc và tích hợp với các plugin và resources bên thứ ba.\n\nSketch cũng hỗ trợ tính năng hợp tác để có thể làm việc cùng nhau trong nhóm và chia sẻ bản thiết kế với khách hàng hoặc các bên liên quan để thu thập nhận xét và phản hồi.",
+  "status": "Inactive",
+  "createdAt": {
+    "$date": "2023-09-26T06:54:00.461Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-26T06:54:00.461Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651281280cc49c259148774f"
+  },
+  "name": "Figma",
+  "short_desc": "Công cụ thiết kế UI/UX dựa trên web, hỗ trợ cả các nền tảng Mac, Windows và Linux",
+  "long_desc": "Figma là một công cụ mạnh mẽ và phổ biến trong cộng đồng thiết kế UI/UX. Với giao diện trực tuyến, không cần cài đặt phần mềm, người dùng có thể truy cập và làm việc trên Figma từ bất kỳ máy tính nào có kết nối internet.\n\nFigma cung cấp các tính năng và công cụ linh hoạt để thiết kế giao diện người dùng. Người dùng có thể tạo ra các bản thiết kế UI sáng tạo và tương tác một cách dễ dàng, bao gồm vẽ vector, tạo component, quản lý layers, áp dụng hiệu ứng, và thiết kế biểu đồ màu sắc. Công cụ này cũng hỗ trợ tích hợp với các plugin và resources bên thứ ba để mở rộng chức năng của nó.\n\nMột trong những lợi thế của Figma là tính năng hợp tác mạnh mẽ. Các nhóm thiết kế có thể làm việc cùng nhau trên cùng một bản thiết kế một cách đồng thời, xem những thay đổi được thực hiện ngay lập tức và trò chuyện trực tiếp thông qua tính năng comment và chat. Figma cung cấp khả năng xem trước và nhận xét trực tuyến, giúp tiết kiệm thời gian và tăng hiệu suất làm việc trong quá trình thiết kế.\n\nNgoài ra, Figma cũng cho phép người dùng chia sẻ bản thiết kế với khách hàng hoặc các thành viên khác trong dự án. Bằng cách tạo các phiên bản và link chia sẻ, người dùng có thể thu thập nhận xét và phản hồi từ mọi bên một cách dễ dàng. Figma còn hỗ trợ việc xuất bản và nhúng các bản thiết kế vào các trang web hoặc ứng dụng, giúp người dùng kiểm tra và xem trước trải nghiệm của giao diện người dùng trên các thiết bị thực tế.",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-09-26T06:58:48.542Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-26T06:58:48.542Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6512822f0cc49c2591487759"
+  },
+  "name": "Node.js",
+  "short_desc": "Node.js là một nền tảng phát triển back-end được xây dựng trên JavaScript. Nó cho phép phát triển ứng dụng mạng và các dịch vụ web hiệu quả, có thể xử lý hàng nghìn yêu cầu đồng thời và tối ưu hiệu năng.",
+  "long_desc": "Node.js là một môi trường chạy mã JavaScript nhanh và nhẹ trên máy chủ. Với Node.js, có thể xây dựng các ứng dụng mạng và các dịch vụ web đa nền tảng hiệu quả.\n\nNode.js sử dụng mô hình xử lý không đồng bộ (asynchronous) và sự kiện (event-driven), cho phép xử lý đa luồng và xử lý các yêu cầu đồng thời một cách hiệu quả. Nó cung cấp một thư viện tiêu chuẩn và các module mạnh mẽ giúp giải quyết các công việc phức tạp như xử lý tệp, truy vấn cơ sở dữ liệu và giao tiếp với các dịch vụ bên ngoài.\n\nNode.js là lựa chọn phổ biến cho các ứng dụng thời gian thực, ứng dụng mạng phân tán và các ứng dụng real-time như trò chơi trực tuyến, ứng dụng chat và streaming media. Nó cũng được sử dụng rộng rãi trong phát triển API và microservices.",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-09-26T07:03:11.125Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-26T07:03:11.125Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6512828f0cc49c259148775d"
+  },
+  "name": "Python",
+  "short_desc": "Python là một ngôn ngữ lập trình mạnh mẽ và dễ học. Nó được sử dụng rộng rãi trong phát triển back-end để xây dựng các ứng dụng web, API và hệ thống phức tạp.",
+  "long_desc": "Python là một ngôn ngữ lập trình đa năng, linh hoạt và có cú pháp đơn giản. Được thiết kế để tăng cường sự hiệu quả và khả năng đọc hiểu mã nguồn, Python trở thành một trong những ngôn ngữ phổ biến nhất trong phát triển back-end.\n\nPython cung cấp cho lập trình viên một cộng đồng mạnh mẽ và nhiều thư viện hỗ trợ, cho phép xử lý các tác vụ phức tạp như xử lý dữ liệu, truy vấn cơ sở dữ liệu, và tạo API. Nó cũng được sử dụng trong phát triển web, viết các ứng dụng di động và xử lý dữ liệu khoa học.\n\nPython có một cú pháp rõ ràng và dễ hiểu, giúp việc phát triển và duy trì mã nguồn dễ dàng. Ngoài ra, nó hỗ trợ rất nhiều frameworks phổ biến như Django, Flask và Pyramid, giúp phát triển các ứng dụng web nhanh chóng và hiệu quả.",
+  "status": "Inactive",
+  "createdAt": {
+    "$date": "2023-09-26T07:04:47.497Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-26T07:04:56.760Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6512835f0cc49c2591487765"
+  },
+  "name": "Ruby",
+  "short_desc": "Ruby là một ngôn ngữ lập trình đơn giản, linh hoạt và dễ đọc viết. Nó được sử dụng rộng rãi trong phát triển back-end để xây dựng các ứng dụng web và dịch vụ.",
+  "long_desc": "Ruby là ngôn ngữ lập trình đa nền tảng được tạo ra bởi Yukihiro Matsumoto vào những năm 1990. Ruby luôn nhấn mạnh tính nhất quán và nguyên tắc \"nguyên tác tắt gọn\" (principle of least astonishment), mở rộng tiện ích và hỗ trợ các mô hình lập trình phổ biến.\n\nRuby có cú pháp đơn giản và rõ ràng, sát nhập nhiều nguyên tắc lập trình từ các ngôn ngữ khác như Perl, Smalltalk và Lisp. Điều này giúp Ruby trở nên dễ đọc viết và thuận tiện cho việc phát triển ứng dụng.\n\nNgôn ngữ Ruby hỗ trợ cả hướng đối tượng (OOP) và viết mã theo phong cách hàm (functional programming). Nó cung cấp các tính năng mạnh mẽ như xử lý đối tượng, kế thừa, đa hình, tư duy phần tử, xử lý biệt lệ, và quản lý bộ nhớ tự động.\n\nRuby có một cộng đồng lập trình viên đam mê và phát triển nhiều thư viện và frameworks phổ biến. Ví dụ, Ruby on Rails là một framework được xây dựng trên Ruby, được sử dụng rộng rãi để phát triển các ứng dụng web nhanh chóng và hiệu quả. Các thư viện và frameworks khác như Sinatra, Hanami và RubyMotion cũng đóng vai trò quan trọng trong việc phát triển ứng dụng Ruby.\n\nRuby thường được sử dụng trong các dự án web, từ ứng dụng web đơn giản cho đến trang web quy mô lớn. Người dùng Ruby ưa thích ngôn ngữ này vì khả năng mở rộng, dễ đọc, đơn giản và yêu thích tư duy OOP. Nó cũng có một cộng đồng năng động và hỗ trợ, cung cấp nhiều tài liệu và nguồn thông tin ...",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-09-26T07:08:15.455Z"
+  },
+  "updatedAt": {
+    "$date": "2023-09-26T07:08:15.455Z"
+  },
+  "__v": 0
+}]

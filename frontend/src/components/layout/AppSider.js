@@ -58,7 +58,7 @@ function AppSider({ isLogin, setIsLogin }) {
       // console.log("postLogout: ", data);
       if (data.success) {
         message.success(data.msg);
-        navigate("/");
+        navigate("/login");
       }
     } catch (err) {
       console.error(err);
@@ -70,7 +70,8 @@ function AppSider({ isLogin, setIsLogin }) {
       {isLogin ? (
         <Menu
           theme="dark"
-          className="vh-100"
+          className="vh-100 overflow-y-auto position-sticky top-0"
+          style={{ zIndex: 90 }}
           mode="inline"
           openKeys={openKeys}
           onOpenChange={onOpenChange}
@@ -80,7 +81,6 @@ function AppSider({ isLogin, setIsLogin }) {
             if (item.key === "logout") {
               setIsLogin(false);
               postLogout();
-              navigate("/");
             } else navigate(item.key);
           }}
           items={[
@@ -165,7 +165,7 @@ function AppSider({ isLogin, setIsLogin }) {
           items={[
             {
               label: "Đăng nhập",
-              key: "/",
+              key: "/login",
               icon: <LoginOutlined />,
             },
             {

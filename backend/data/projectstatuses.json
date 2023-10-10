@@ -1,0 +1,80 @@
+[{
+  "_id": {
+    "$oid": "651b742cdfcc35656f44e363"
+  },
+  "name": "Đã hoàn thành",
+  "short_desc": "Dự án đã được hoàn thành thành công và đã đạt được tất cả mục tiêu và yêu cầu ban đầu.",
+  "long_desc": "Trạng thái \"Dự án đã hoàn thành\" đại diện cho các dự án mà công việc phát triển, thử nghiệm và triển khai đã được kết thúc. Tất cả các công việc đã hoàn thành theo kế hoạch và dự án đang ở trạng thái đáng khen ngợi hoặc thành công.\n\nMột số hoạt động và công việc cần làm:\n▸ Đánh giá kết quả: Xem xét kết quả dự án để xác minh rằng tất cả các mục tiêu đã đạt được và yêu cầu đã được hoàn thành. So sánh kết quả với kế hoạch và tiêu chí đánh giá để đảm bảo sự tương xứng.\n▸ Xem xét nghiệm thu: Đánh giá và rút ra bài học từ quá trình dự án. Xem xét những gì đã thành công và những gì có thể được cải thiện trong các dự án tương lai. Xây dựng một bộ sưu tập kiến thức để chia sẻ và áp dụng trong các dự án tương lai.\n▸ Đánh giá cách tiếp cận: Xem xét và đánh giá cách tiếp cận quản lý dự án đã được sử dụng. Đảm bảo rằng các phương pháp, quy trình và công cụ đã được áp dụng một cách hiệu quả và có thể được sử dụng lại trong tương lai.\n▸ Báo cáo và thông báo: Tạo báo cáo dự án cuối cùng để cung cấp thông tin tổng hợp về kết quả của dự án cho các bên liên quan. Thông báo về dự án đã hoàn thành và tạo điều kiện cho việc chuyển giao nếu cần.\n\nTrạng thái \"Dự án đã hoàn thành\" đại diện cho một kết quả thành công của dự án, và nó cho phép nhóm dự án chia sẻ kết quả và hoàn tất quá trình dự án.",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-10-03T01:53:48.965Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-03T02:18:28.340Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b7473dfcc35656f44e367"
+  },
+  "name": "Đang tiến hành",
+  "short_desc": "Dự án đang được triển khai và các công việc vẫn đang tiếp tục thực hiện.",
+  "long_desc": "Trạng thái \"Dự án đang tiến hành\" đại diện cho giai đoạn mà công việc thực hiện trong dự án đang diễn ra. Các nhiệm vụ được thực hiện theo lịch trình, nguồn lực được sử dụng và tiến độ được theo dõi để đảm bảo dự án tiếp tục diễn ra một cách hiệu quả.\n\nMột số hoạt động và công việc cần làm:\n▸ Thực hiện công việc: Các thành viên trong nhóm dự án thực hiện các công việc được giao, nhằm đạt được các mục tiêu và cấu trúc phạm vi dự án đã được xác định. Các công việc này có thể bao gồm phát triển, kiểm tra, triển khai và theo dõi tiến độ.\n▸ Theo dõi tiến độ: Theo dõi tiến độ của dự án nhằm đảm bảo rằng công việc được hoàn thành theo kế hoạch. Điều này liên quan đến việc thông báo và ghi nhận tiến độ cũng như phát hiện và giải quyết các vấn đề, rủi ro hoặc trở ngại gây trở ngại cho tiến trình dự án.\n▸ Quản lý nguồn lực: Đảm bảo sự sử dụng hiệu quả và quản lý các nguồn lực (nhân lực, thiết bị, vật liệu) trong dự án. Theo dõi các tài nguyên sẵn có và xác định nếu cần bổ sung hay thay đổi để đảm bảo tiến trình diễn ra theo kế hoạch.\n▸ Giao tiếp và báo cáo: Liên lạc và báo cáo tiến trình dự án với các bên liên quan, bao gồm thành viên trong nhóm dự án, quản lý, khách hàng, và các bên liên quan khác. Đảm bảo rằng thông tin về tiến độ, tài nguyên và vấn đề được chia sẻ và cập nhật thường xuyên.\n\nTrạng thái \"Dự án đang tiến hành\" cho phép quản lý và giám sát dự án trong quá trình thực hiện công việc. Nó là giai đoạn quan trọng để theo dõi tiến trình, quản lý tài nguyên và tạo động lực cho nhóm dự án để hoàn thành dự án thành công.",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-10-03T01:54:59.840Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-03T02:22:46.402Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b74ecdfcc35656f44e36b"
+  },
+  "name": "Chưa bắt đầu",
+  "short_desc": "Dự án chưa bắt đầu và công việc chưa được thực hiện.",
+  "long_desc": "Trạng thái \"Dự án chưa bắt đầu\" đại diện cho các dự án mà công việc chưa bắt đầu và đang trong giai đoạn lập kế hoạch, chuẩn bị tài liệu và phân công nguồn lực cho dự án. Các thành viên trong nhóm dự án đang chờ đợi để bắt đầu thực hiện các công việc liên quan.\n\nMột số hoạt động và công việc cần làm:\n▸ Lập kế hoạch: Xây dựng kế hoạch chung cho dự án, bao gồm xác định phạm vi, mục tiêu, nguồn lực cần thiết và lịch trình dự án. Đảm bảo rằng kế hoạch đã được thông qua và sẵn sàng để bắt đầu thực hiện công việc.\n▸ Chuẩn bị tài liệu: Xác định các tài liệu và tài liệu tham khảo liên quan đến dự án. Đảm bảo rằng các tài liệu sẵn có và được cập nhật, bao gồm các tài liệu về yêu cầu, thiết kế, kế hoạch và quy trình.\n▸ Phân công nguồn lực: Xác định và phân công nguồn lực cho các công việc trong dự án. Đảm bảo rằng các tài nguyên, bao gồm con người, thiết bị và công cụ, đã được xác định và sẵn sàng để bắt đầu công việc.\n▸ Thiết lập cơ sở hạ tầng: Chuẩn bị và thiết lập cơ sở hạ tầng cần thiết cho dự án. Điều này có thể bao gồm việc cấu hình một môi trường phát triển, chuẩn bị hệ thống hoặc tạo môi trường làm việc cho thành viên trong nhóm dự án.\n\nTrạng thái \"Dự án chưa bắt đầu\" cho phép nhóm dự án chuẩn bị và sắp xếp các nguồn lực và kế hoạch để bắt đầu thực hiện dự án. Nó là một giai đoạn quan trọng để đảm bảo rằng dự án có một nền tảng vững chắc trước khi bước vào giai đoạn thực hiện công việc.",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-10-03T01:57:00.808Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-03T02:19:06.019Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b752adfcc35656f44e36f"
+  },
+  "name": "Đang chờ duyệt",
+  "short_desc": "Dự án đã hoàn thành việc thực hiện công việc nhưng đang chờ được duyệt.",
+  "long_desc": "Trạng thái \"Dự án đang chờ duyệt\" đại diện cho giai đoạn mà dự án đã được hoàn thành hoặc đạt tới một cột mốc quan trọng, nhưng chưa được duyệt hoặc phê duyệt chính thức. Dự án đang chờ duyệt đòi hỏi sự xem xét và quyết định từ bên có thẩm quyền trước khi tiếp tục sang giai đoạn tiếp theo.\n\nMột số hoạt động và công việc cần làm:\n▸ Xem xét và kiểm tra: Dự án được xem xét để đảm bảo rằng các mục tiêu và tiêu chí đã được đáp ứng. Các thành phần của dự án được kiểm tra để đảm bảo tính toàn vẹn và chất lượng của công việc đã được hoàn thành.\n▸ Duyệt và phê duyệt: Dự án được chuyển qua quy trình duyệt hoặc phê duyệt, trong đó bên có thẩm quyền xem xét kỹ lưỡng và đưa ra quyết định cuối cùng về việc chấp thuận hoặc từ chối dự án. Duyệt và phê duyệt có thể liên quan đến sự duyệt từ các bên liên quan, giám đốc dự án hoặc khách hàng.\n▸ Đánh giá và chỉnh sửa: Nếu cần, dự án có thể yêu cầu chỉnh sửa hoặc điều chỉnh dựa trên phản hồi từ bên duyệt. Các yêu cầu hoặc điều chỉnh sẽ được xem xét và thực hiện trước khi dự án được chấp nhận hoặc phê duyệt chính thức.\n▸ Quản lý thông báo: Trong giai đoạn chờ duyệt, việc thông báo và ghi nhận liên quan đến tình trạng và tiến độ dự án là quan trọng. Các báo cáo và thông tin cần được gửi đến và từ bên duyệt để đảm bảo rằng quy trình chờ duyệt diễn ra một cách suôn sẻ và kịp thời.\n\nTrạng thái \"Dự án đang chờ duyệt\" đóng vai trò quan trọng trong quá trình quản lý dự án, cung cấp cơ hội để xem xét và duyệt các khía cạnh quan trọng của dự án trước khi tiếp tục đến giai đoạn tiếp theo. Các quy trình duyệt và phê duyệt chính thức đảm bảo rằng dự án đáp ứng được các yêu cầu và tiêu chuẩn đã được xác định trước.",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-10-03T01:58:02.077Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-03T02:27:34.116Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "651b75fadfcc35656f44e373"
+  },
+  "name": "Gặp vấn đề",
+  "short_desc": "Dự án đang gặp vấn đề hoặc rủi ro có thể ảnh hưởng đến tiến trình hoặc kết quả của dự án.",
+  "long_desc": "Trạng thái \"Dự án gặp vấn đề\" đại diện cho các dự án mà gặp phải vấn đề, rủi ro hoặc trở ngại không mong muốn. Các vấn đề có thể bao gồm thiếu nguồn lực, xung đột lịch trình, thay đổi yêu cầu, sự cố kỹ thuật, hay bất kỳ khó khăn nào khác gây trở ngại đến quá trình thực hiện dự án.\n\nMột số hoạt động và công việc cần làm để xử lý vấn đề:\n▸ Xác định nguyên nhân: Điều tra và xác định nguyên nhân của vấn đề hoặc rủi ro. Phân tích để hiểu tại sao vấn đề xảy ra và ảnh hưởng của nó đến dự án.\n▸ Đánh giá tác động: Đánh giá tác động của vấn đề hoặc rủi ro đến dự án, bao gồm tác động lên tiến độ, nguồn lực, chi phí và chất lượng. Điều này giúp xác định mức độ ưu tiên và sự cần thiết của việc giải quyết vấn đề.\n▸ Lập kế hoạch xử lý: Xây dựng kế hoạch để đối phó với vấn đề, bao gồm việc xác định các biện pháp khắc phục và giải quyết. Phân công nhiệm vụ, tài nguyên và lịch trình để xử lý vấn đề và tái thiết lập dự án trên quỹ đạo.\n▸ Theo dõi và giám sát: Theo dõi và giám sát quá trình xử lý vấn đề. Đảm bảo rằng các biện pháp đang được thực hiện và theo dõi tác động của chúng. Đưa ra điều chỉnh và điều phối khi cần thiết để đảm bảo quá trình xử lý vấn đề thành công.\n▸ Báo cáo và ghi chép: Báo cáo vấn đề cho các bên liên quan, bao gồm nhóm dự án, người quản lý và các bên quan tâm khác. Ghi chép chi tiết vấn đề, các biện pháp đã thực hiện và kết quả đạt được để có thông tin tham khảo trong tương lai.\n\nTrạng thái \"Dự án gặp vấn đề\" cho phép nhóm dự án hành động để giải quyết các rủi ro và khó khăn, tạo điều kiện để dự án tiếp tục phát triển và đạt được mục tiêu ban đầu.",
+  "status": "Active",
+  "createdAt": {
+    "$date": "2023-10-03T02:01:30.975Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-03T02:17:24.609Z"
+  },
+  "__v": 0
+}]

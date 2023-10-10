@@ -1,7 +1,7 @@
 import { Button, Input, Space } from "antd";
 
-export const SERVER_URL = "http://localhost:5000";
-// export const SERVER_URL = "https://pm-app-be.glitch.me";
+// export const SERVER_URL = "http://localhost:5000";
+export const SERVER_URL = "https://pm-app-be.glitch.me";
 
 export const recordsPerPage = 5;
 

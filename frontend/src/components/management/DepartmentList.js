@@ -1,6 +1,6 @@
 import React from "react";
 import { SearchOutlined } from "@ant-design/icons";
-import { Table } from "antd";
+import { Empty, Table } from "antd";
 import TagDisplay from "../UI/TagDisplay";
 import Actions from "../UI/Actions";
 import { filterDropdownSearch } from "../../data/api";
@@ -95,9 +95,15 @@ function DepartmentList({
           setPage(page);
           setPageSize(pageSize);
         },
+        hideOnSinglePage: true,
       }}
       bordered={true}
       size="middle"
+      locale={{
+        emptyText: (
+          <Empty description="Không có dữ liệu" imageStyle={{ height: 60 }} />
+        ),
+      }}
     />
   );
 }

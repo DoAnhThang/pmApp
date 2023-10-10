@@ -36,7 +36,7 @@ function Actions({
         />
       </Tooltip>
       <Popconfirm
-        placement="top"
+        placement="bottom"
         title="Bạn có chắc chắn muốn xóa không?"
         okText="Vẫn xóa"
         cancelText="Đóng"

@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from "antd";
+import { Empty, Table } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import Actions from "../UI/Actions";
 import { filterDropdownSearch } from "../../data/api";
@@ -57,6 +57,7 @@ function DirectoryList({
           {text.length > 150 ? text.substring(0, 100) + " ..." : text}
         </span>
       ),
+      className: "min-width-200px",
     },
     priority && {
       title: "Ưu tiên",
@@ -116,9 +117,15 @@ function DirectoryList({
           setPage(page);
           setPageSize(pageSize);
         },
+        hideOnSinglePage: true,
       }}
       bordered={true}
       size="middle"
+      locale={{
+        emptyText: (
+          <Empty description="Không có dữ liệu" imageStyle={{ height: 60 }} />
+        ),
+      }}
     />
   );
 }

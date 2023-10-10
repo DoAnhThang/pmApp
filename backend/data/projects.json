@@ -1,0 +1,545 @@
+[{
+  "_id": {
+    "$oid": "6516ee850d83daeaa9dcfe62"
+  },
+  "name": "E-commerce Website",
+  "startTime": "01/01/2022",
+  "endTime": "30/06/2022",
+  "project_type": [
+    {
+      "$oid": "650f9dd91c98531e12d15378"
+    }
+  ],
+  "project_status": [
+    {
+      "$oid": "651b742cdfcc35656f44e363"
+    }
+  ],
+  "tech_stacks": [
+    {
+      "$oid": "651100acea4438aeec4c3d35"
+    },
+    {
+      "$oid": "6512822f0cc49c2591487759"
+    }
+  ],
+  "departments": [
+    {
+      "$oid": "65162cbec2fba3edb73ae8e7"
+    },
+    {
+      "$oid": "65162ce2c2fba3edb73ae8ec"
+    },
+    {
+      "$oid": "65162d24c2fba3edb73ae8f1"
+    },
+    {
+      "$oid": "65162d49c2fba3edb73ae8f6"
+    },
+    {
+      "$oid": "65162d76c2fba3edb73ae8fe"
+    },
+    {
+      "$oid": "65162c38c2fba3edb73ae8dd"
+    },
+    {
+      "$oid": "65162c79c2fba3edb73ae8e2"
+    }
+  ],
+  "staffs": [
+    {
+      "$oid": "651645c2c32900fabd984808"
+    }
+  ],
+  "customer_group": [
+    {
+      "$oid": "65110aacea4438aeec4c3d95"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T15:34:29.692Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:31:05.547Z"
+  },
+  "__v": 5
+},
+{
+  "_id": {
+    "$oid": "6516efc40d83daeaa9dcfe74"
+  },
+  "name": "Social Media App",
+  "startTime": "15/03/2022",
+  "endTime": "30/09/2022",
+  "project_type": [
+    {
+      "$oid": "650f9fbe1c98531e12d1538a"
+    }
+  ],
+  "project_status": [
+    {
+      "$oid": "651b7473dfcc35656f44e367"
+    }
+  ],
+  "tech_stacks": [
+    {
+      "$oid": "651101d3ea4438aeec4c3d3d"
+    },
+    {
+      "$oid": "6512835f0cc49c2591487765"
+    }
+  ],
+  "departments": [],
+  "staffs": [
+    {
+      "$oid": "651645c2c32900fabd984808"
+    },
+    {
+      "$oid": "6516461dc32900fabd984819"
+    }
+  ],
+  "customer_group": [
+    {
+      "$oid": "65110a4aea4438aeec4c3d81"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T15:39:48.783Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:31:41.321Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "6516f03f0d83daeaa9dcfe7e"
+  },
+  "name": "Travel Booking Platform",
+  "startTime": "01/05/2022",
+  "endTime": "31/12/2022",
+  "project_type": [
+    {
+      "$oid": "650f9fff1c98531e12d1538e"
+    }
+  ],
+  "project_status": [
+    {
+      "$oid": "651b74ecdfcc35656f44e36b"
+    }
+  ],
+  "tech_stacks": [
+    {
+      "$oid": "65110173ea4438aeec4c3d39"
+    },
+    {
+      "$oid": "6512828f0cc49c259148775d"
+    }
+  ],
+  "departments": [
+    {
+      "$oid": "65162c38c2fba3edb73ae8dd"
+    }
+  ],
+  "staffs": [
+    {
+      "$oid": "651645c2c32900fabd984808"
+    },
+    {
+      "$oid": "6516461dc32900fabd984819"
+    },
+    {
+      "$oid": "65164665c32900fabd984829"
+    }
+  ],
+  "customer_group": [
+    {
+      "$oid": "651109a0ea4438aeec4c3d7d"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T15:41:51.374Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:31:41.321Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "6516f0860d83daeaa9dcfe88"
+  },
+  "name": "Online Learning Portal",
+  "startTime": "15/06/2022",
+  "endTime": "31/03/2023",
+  "project_type": [
+    {
+      "$oid": "650f9f591c98531e12d15384"
+    }
+  ],
+  "project_status": [
+    {
+      "$oid": "651b752adfcc35656f44e36f"
+    }
+  ],
+  "tech_stacks": [
+    {
+      "$oid": "65110307ea4438aeec4c3d45"
+    },
+    {
+      "$oid": "6512822f0cc49c2591487759"
+    }
+  ],
+  "departments": [
+    {
+      "$oid": "65162c38c2fba3edb73ae8dd"
+    }
+  ],
+  "staffs": [
+    {
+      "$oid": "6516461dc32900fabd984819"
+    },
+    {
+      "$oid": "65164665c32900fabd984829"
+    },
+    {
+      "$oid": "651646b2c32900fabd98483d"
+    }
+  ],
+  "customer_group": [
+    {
+      "$oid": "65110b66ea4438aeec4c3d9d"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T15:43:02.885Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:31:41.585Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "6516f0c20d83daeaa9dcfe92"
+  },
+  "name": "Food Delivery Mobile App",
+  "startTime": "01/07/2022",
+  "endTime": "31/12/2022",
+  "project_type": [
+    {
+      "$oid": "650f9eda1c98531e12d15380"
+    }
+  ],
+  "project_status": [
+    {
+      "$oid": "651b75fadfcc35656f44e373"
+    }
+  ],
+  "tech_stacks": [
+    {
+      "$oid": "65110379ea4438aeec4c3d49"
+    },
+    {
+      "$oid": "6512828f0cc49c259148775d"
+    }
+  ],
+  "departments": [],
+  "staffs": [
+    {
+      "$oid": "651646e2c32900fabd984851"
+    },
+    {
+      "$oid": "65164665c32900fabd984829"
+    },
+    {
+      "$oid": "651646b2c32900fabd98483d"
+    }
+  ],
+  "customer_group": [
+    {
+      "$oid": "65110aacea4438aeec4c3d95"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T15:44:02.822Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:31:41.585Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "6516f1770d83daeaa9dcfe9c"
+  },
+  "name": "Fitness Tracking Website",
+  "startTime": "15/08/2022",
+  "endTime": "30/06/2023",
+  "project_type": [
+    {
+      "$oid": "650f9fff1c98531e12d1538e"
+    }
+  ],
+  "project_status": [
+    {
+      "$oid": "651b742cdfcc35656f44e363"
+    }
+  ],
+  "tech_stacks": [
+    {
+      "$oid": "65110379ea4438aeec4c3d49"
+    },
+    {
+      "$oid": "6511045eea4438aeec4c3d67"
+    },
+    {
+      "$oid": "6512828f0cc49c259148775d"
+    }
+  ],
+  "departments": [],
+  "staffs": [
+    {
+      "$oid": "651646e2c32900fabd984851"
+    },
+    {
+      "$oid": "651646b2c32900fabd98483d"
+    }
+  ],
+  "customer_group": [
+    {
+      "$oid": "651109a0ea4438aeec4c3d7d"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T15:47:03.783Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:31:41.585Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "6516f2230d83daeaa9dcfeae"
+  },
+  "name": "Music Streaming Service",
+  "startTime": "01/09/2022",
+  "endTime": "28/02/2023",
+  "project_type": [
+    {
+      "$oid": "650f9eda1c98531e12d15380"
+    }
+  ],
+  "project_status": [
+    {
+      "$oid": "651b7473dfcc35656f44e367"
+    }
+  ],
+  "tech_stacks": [
+    {
+      "$oid": "6511045eea4438aeec4c3d67"
+    },
+    {
+      "$oid": "651104c1ea4438aeec4c3d6b"
+    },
+    {
+      "$oid": "65110379ea4438aeec4c3d49"
+    }
+  ],
+  "departments": [],
+  "staffs": [
+    {
+      "$oid": "6516473bc32900fabd984865"
+    }
+  ],
+  "customer_group": [
+    {
+      "$oid": "65110a4aea4438aeec4c3d81"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T15:49:55.943Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:30:06.552Z"
+  },
+  "__v": 2
+},
+{
+  "_id": {
+    "$oid": "6516f24b0d83daeaa9dcfebb"
+  },
+  "name": "Inventory Management System",
+  "startTime": "15/10/2022",
+  "endTime": "30/09/2023",
+  "project_type": [
+    {
+      "$oid": "650f9dd91c98531e12d15378"
+    }
+  ],
+  "project_status": [
+    {
+      "$oid": "651b74ecdfcc35656f44e36b"
+    }
+  ],
+  "tech_stacks": [],
+  "departments": [],
+  "staffs": [
+    {
+      "$oid": "6516473bc32900fabd984865"
+    }
+  ],
+  "customer_group": [
+    {
+      "$oid": "65110aacea4438aeec4c3d95"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T15:50:35.882Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:30:06.552Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "6516f42f0d83daeaa9dcff48"
+  },
+  "name": "Event Management Platform",
+  "startTime": "01/11/2022",
+  "endTime": "31/07/2023",
+  "project_type": [
+    {
+      "$oid": "650f9fff1c98531e12d1538e"
+    }
+  ],
+  "project_status": [
+    {
+      "$oid": "651b752adfcc35656f44e36f"
+    }
+  ],
+  "tech_stacks": [],
+  "departments": [],
+  "staffs": [
+    {
+      "$oid": "65164842c32900fabd9848f6"
+    }
+  ],
+  "customer_group": [
+    {
+      "$oid": "651109a0ea4438aeec4c3d7d"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T15:58:39.591Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:29:55.326Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "6516f4470d83daeaa9dcff55"
+  },
+  "name": "Online Marketplace",
+  "startTime": "01/01/2023",
+  "endTime": "31/12/2023",
+  "project_type": [
+    {
+      "$oid": "650f9dd91c98531e12d15378"
+    }
+  ],
+  "project_status": [
+    {
+      "$oid": "651b75fadfcc35656f44e373"
+    }
+  ],
+  "tech_stacks": [],
+  "departments": [],
+  "staffs": [
+    {
+      "$oid": "65164842c32900fabd9848f6"
+    }
+  ],
+  "customer_group": [
+    {
+      "$oid": "65110a4aea4438aeec4c3d81"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T15:59:03.275Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:29:55.326Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "6516f45a0d83daeaa9dcff62"
+  },
+  "name": "Healthcare Mobile App",
+  "startTime": "15/02/2023",
+  "endTime": "30/09/2023",
+  "project_type": [
+    {
+      "$oid": "650f9eda1c98531e12d15380"
+    }
+  ],
+  "project_status": [
+    {
+      "$oid": "651b742cdfcc35656f44e363"
+    }
+  ],
+  "tech_stacks": [],
+  "departments": [],
+  "staffs": [
+    {
+      "$oid": "65164889c32900fabd984903"
+    }
+  ],
+  "customer_group": [
+    {
+      "$oid": "65110b0bea4438aeec4c3d99"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T15:59:22.913Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:29:38.932Z"
+  },
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "6516f4700d83daeaa9dcff74"
+  },
+  "name": "Real Estate Listing Website",
+  "startTime": "01/04/2023",
+  "endTime": "31/12/2023",
+  "project_type": [],
+  "project_status": [],
+  "tech_stacks": [],
+  "departments": [],
+  "staffs": [
+    {
+      "$oid": "651648c8c32900fabd98490f"
+    }
+  ],
+  "customer_group": [
+    {
+      "$oid": "65110a4aea4438aeec4c3d81"
+    }
+  ],
+  "createdAt": {
+    "$date": "2023-09-29T15:59:44.885Z"
+  },
+  "updatedAt": {
+    "$date": "2023-10-05T02:29:30.535Z"
+  },
+  "__v": 3
+}]
