@@ -15,37 +15,38 @@ import { SERVER_URL } from "../../data/api";
 
 function AppSider({ isLogin, setIsLogin }) {
   const navigate = useNavigate();
-  const rootSubmenuKeys = ["/", "directory", "management", "report"];
   const getMatchingKey = () => {
     if (
-      window.location.pathname.includes("project-type") ||
-      window.location.pathname.includes("project-status") ||
-      window.location.pathname.includes("tech-stack") ||
-      window.location.pathname.includes("customer-group")
+      window.location.pathname === "/project-type" ||
+      window.location.pathname === "/project-status" ||
+      window.location.pathname === "/tech-stack" ||
+      window.location.pathname === "/customer-group"
     ) {
       return ["directory"];
     } else if (
-      window.location.pathname.includes("departments") ||
-      window.location.pathname.includes("staffs") ||
-      window.location.pathname.includes("projects")
+      window.location.pathname === "/departments" ||
+      window.location.pathname === "/staffs" ||
+      window.location.pathname === "/projects"
     ) {
       return ["management"];
     } else if (
-      window.location.pathname.includes("project-quantity") ||
-      window.location.pathname.includes("staff-quantity")
+      window.location.pathname === "/project-quantity" ||
+      window.location.pathname === "/staff-quantity"
     ) {
       return ["report"];
-    } else return ["/"];
+    }
   };
 
   const [openKeys, setOpenKeys] = useState(getMatchingKey());
+  // const rootSubmenuKeys = ["/", "directory", "management", "report"];
   const onOpenChange = (keys) => {
-    const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-    if (latestOpenKey && rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-      setOpenKeys(keys);
-    } else {
-      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
-    }
+    setOpenKeys(keys);
+    // const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
+    // if (latestOpenKey && rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+    //   setOpenKeys(keys);
+    // } else {
+    //   setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+    // }
   };
 
   const postLogout = async () => {
@@ -58,6 +59,7 @@ function AppSider({ isLogin, setIsLogin }) {
       // console.log("postLogout: ", data);
       if (data.success) {
         message.success(data.msg);
+        setIsLogin(false);
         navigate("/login");
       }
     } catch (err) {
@@ -70,18 +72,14 @@ function AppSider({ isLogin, setIsLogin }) {
       {isLogin ? (
         <Menu
           theme="dark"
-          className="vh-100 overflow-y-auto position-sticky top-0"
-          style={{ zIndex: 90 }}
           mode="inline"
+          className="vh-100 overflow-y-auto position-sticky top-0"
           openKeys={openKeys}
-          onOpenChange={onOpenChange}
           selectedKeys={[window.location.pathname]}
-          defaultSelectedKeys={[window.location.pathname]}
+          onOpenChange={onOpenChange}
           onClick={(item) => {
-            if (item.key === "logout") {
-              setIsLogin(false);
-              postLogout();
-            } else navigate(item.key);
+            if (item.key === "logout") postLogout();
+            else navigate(item.key);
           }}
           items={[
             {

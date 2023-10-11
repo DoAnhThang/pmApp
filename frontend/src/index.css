@@ -88,6 +88,6 @@ button:disabled {
   }
   .ant-drawer .ant-drawer-close,
   .ant-drawer .ant-drawer-title {
-    color: whitesmoke;
+    color: whitesmoke !important;
   }
 }

@@ -21,12 +21,19 @@ function App() {
       });
       const data = await res.json();
       // console.log("getAuth: ", data);
-      if (data.isAuth) {
+      if (data.isAuth === true) {
         setIsLogin(true);
         setActiveUser(data.username);
-      } else {
-        message.error(data.msg);
-        navigate("/login");
+      } else if (data.isAuth === false) {
+        if (
+          window.location.pathname === "/signup" ||
+          window.location.pathname === "/login"
+        ) {
+          return null;
+        } else {
+          message.error(data.msg);
+          navigate("/login");
+        }
       }
     } catch (err) {
       console.error("getAuth: ", err);
@@ -40,10 +47,14 @@ function App() {
     <Space direction="vertical" className="w-100" size={[0, 48]}>
       <Layout>
         <Layout.Header
-          className="d-flex justify-content-between bg-gradient text-white ps-3 pe-5 position-sticky top-0"
+          className="d-flex justify-content-between bg-gradient text-white p-3 position-sticky top-0"
           style={{ height: "3rem", zIndex: 100 }}
         >
-          <AppHeader isLogin={isLogin} setIsLogin={setIsLogin} />
+          <AppHeader
+            isLogin={isLogin}
+            setIsLogin={setIsLogin}
+            activeUser={activeUser}
+          />
         </Layout.Header>
         <Layout>
           <Layout.Sider className="bg-white mobileHidden">

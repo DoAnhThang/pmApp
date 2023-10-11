@@ -12,16 +12,18 @@ const tailFormItemLayout = {
 };
 
 const initValues = {
-  username: "",
-  email: "",
-  password: "",
-  passwordConfirm: "",
+  username: null,
+  email: null,
+  password: null,
+  passwordConfirm: null,
+  agreement: null,
 };
 
 function Signup() {
   const navigate = useNavigate();
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(initValues);
 
   const postSignup = async (formValues) => {
     try {
@@ -39,9 +41,7 @@ function Signup() {
         navigate("/");
       } else {
         for (const key in data) {
-          if (initValues.hasOwnProperty(key)) {
-            message.error(data[key].msg);
-          }
+          setErrorMsg((prev) => ({ ...prev, [key]: data[key].msg }));
         }
       }
       setLoading(false);
@@ -52,6 +52,7 @@ function Signup() {
 
   const onSubmit = (values) => {
     setLoading(true);
+    setErrorMsg(initValues);
     postSignup(values);
   };
 
@@ -79,7 +80,8 @@ function Signup() {
               message: "Tên người dùng phải có ít nhất 3 kí tự",
             },
           ]}
-          hasFeedback
+          validateStatus={errorMsg.username && "error"}
+          help={errorMsg.username ? errorMsg.username : null}
         >
           <Input placeholder="Nhập tên người dùng" />
         </Form.Item>
@@ -97,7 +99,8 @@ function Signup() {
               message: "Vui lòng nhập địa chỉ e-mail hợp lệ",
             },
           ]}
-          hasFeedback
+          validateStatus={errorMsg.email && "error"}
+          help={errorMsg.email ? errorMsg.email : null}
         >
           <Input placeholder="Nhập địa chỉ email" />
         </Form.Item>
@@ -116,7 +119,8 @@ function Signup() {
                 "Mật khẩu phải có ít nhất 8 kí tự bao gồm chữ, số và kí tự đặc biệt",
             },
           ]}
-          hasFeedback
+          validateStatus={errorMsg.password && "error"}
+          help={errorMsg.password ? errorMsg.password : null}
         >
           <Input.Password placeholder="Nhập mật khẩu" />
         </Form.Item>
@@ -141,12 +145,14 @@ function Signup() {
               },
             }),
           ]}
-          hasFeedback
+          validateStatus={errorMsg.passwordConfirm && "error"}
+          help={errorMsg.passwordConfirm ? errorMsg.passwordConfirm : null}
         >
           <Input.Password placeholder="Xác nhận mật khẩu" />
         </Form.Item>
 
         <Form.Item
+          {...tailFormItemLayout}
           name="agreement"
           valuePropName="checked"
           rules={[
@@ -156,12 +162,13 @@ function Signup() {
                   ? Promise.resolve()
                   : Promise.reject(
                       new Error(
-                        "Cần phải đồng ý với các điều khoản và điều kiện"
+                        "Vui lòng đồng ý với các điều khoản và điều kiện"
                       )
                     ),
             },
           ]}
-          {...tailFormItemLayout}
+          validateStatus={errorMsg.agreement && "error"}
+          help={errorMsg.agreement ? errorMsg.agreement : null}
         >
           <Checkbox>
             Tôi đồng ý với <Link to="#">các điều khoản và điều kiện</Link>
@@ -170,10 +177,10 @@ function Signup() {
 
         <Form.Item {...tailFormItemLayout}>
           <Button type="primary" htmlType="submit" loading={loading}>
-            {loading ? "Loading ..." : "Đăng ký"}
+            {loading ? "Loading..." : "Đăng ký"}
           </Button>
           <div className="mt-3">
-            Đã có tài khoản? <Link to="/">Đăng nhập ngay</Link>
+            Đã có tài khoản? <Link to="/login">Đăng nhập ngay</Link>
           </div>
         </Form.Item>
       </Form>

@@ -11,14 +11,14 @@ router.get("/auth", authController.getAuth);
 router.post(
   "/signup",
   [
-    body("username", "Tên người dùng phải có ít nhất 3 kí tự")
+    body("username", "Tên người dùng phải dài ít nhất 3 ký tự")
       .not()
       .isEmpty()
       .trim()
       .isLength({ min: 3 }),
     body("email")
       .isEmail()
-      .withMessage("Vui lòng nhập địa chỉ email hợp lệ")
+      .withMessage("Vui lòng nhập địa chỉ e-mail hợp lệ")
       .normalizeEmail()
       .custom((value, { req }) => {
         return User.findOne({ email: value }).then((userDoc) => {
@@ -29,10 +29,7 @@ router.post(
           }
         });
       }),
-    body(
-      "password",
-      "Mật khẩu phải có ít nhất 8 kí tự bao gồm chữ, số và kí tự đặc biệt"
-    )
+    body("password", "Mật khẩu phải dài ít nhất 8 ký tự")
       .trim()
       .isAlphanumeric()
       .isLength({ min: 8 }),

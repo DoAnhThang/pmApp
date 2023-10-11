@@ -2,14 +2,34 @@ import {
   MenuUnfoldOutlined,
   ThunderboltFilled,
   BellOutlined,
+  DownOutlined,
+  UserOutlined,
+  SettingFilled,
   // MailOutlined,
 } from "@ant-design/icons";
-import { Badge, Drawer, List, Space, Tooltip } from "antd";
+import {
+  Badge,
+  Drawer,
+  List,
+  Space,
+  Tooltip,
+  Avatar,
+  Button,
+  Dropdown,
+} from "antd";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import AppSider from "./AppSider";
 
-function AppHeader({ isLogin, setIsLogin }) {
+const items = [
+  { type: "divider" },
+  { key: "0", label: "Profile", icon: <UserOutlined /> },
+  { type: "divider" },
+  { key: "1", label: "Settings", icon: <SettingFilled /> },
+  { type: "divider" },
+];
+
+function AppHeader({ isLogin, setIsLogin, activeUser }) {
   const [menuMobileMode, setMenuMobileMode] = useState(false);
   const [todos, setTodos] = useState([]);
   const [todosOpen, setTodosOpen] = useState(false);
@@ -60,29 +80,27 @@ function AppHeader({ isLogin, setIsLogin }) {
         </NavLink>
       </div>
 
-      {/* Announcement */}
+      {/* Notification */}
       {isLogin && (
-        <>
-          <Space className="d-flex gap-4 pt-3">
-            <Tooltip title="Thông báo" placement="bottom">
-              <Badge
-                count={todos.length}
-                offset={[5, 0]}
-                className="cursor-pointer"
-              >
-                <BellOutlined
-                  className="fs-5 text-white"
-                  onClick={() => setTodosOpen(true)}
-                />
-              </Badge>
-            </Tooltip>
-            {/* <Badge count={quotes.length} offset={[5, 0]} className="cursor-pointer">
+        <Space size={32} className="pt-3">
+          <Tooltip title="Thông báo" placement="bottom">
+            <Badge
+              count={todos.length}
+              offset={[5, 0]}
+              className="cursor-pointer"
+            >
+              <BellOutlined
+                className="fs-5 text-white"
+                onClick={() => setTodosOpen(true)}
+              />
+            </Badge>
+          </Tooltip>
+          {/* <Badge count={quotes.length} offset={[5, 0]} className="cursor-pointer">
               <MailOutlined
                 className="fs-5 text-white"
                 onClick={() => setQuotesOpen(true)}
               />
             </Badge> */}
-          </Space>
 
           <Drawer
             title="Todos"
@@ -95,7 +113,6 @@ function AppHeader({ isLogin, setIsLogin }) {
               renderItem={(item) => <List.Item>{item.todo}</List.Item>}
             ></List>
           </Drawer>
-
           {/* <Drawer
             title="Quotes"
             open={quotesOpen}
@@ -112,7 +129,18 @@ function AppHeader({ isLogin, setIsLogin }) {
               )}
             ></List>
           </Drawer> */}
-        </>
+
+          <Dropdown menu={{ items }} trigger={["click"]}>
+            <div style={{ marginTop: "-1rem" }}>
+              <Button type="link">
+                <Avatar className="fw-bold border border-2 bg-primary">
+                  {activeUser.slice(0, 2).toUpperCase()}
+                </Avatar>
+                <DownOutlined />
+              </Button>
+            </div>
+          </Dropdown>
+        </Space>
       )}
     </>
   );

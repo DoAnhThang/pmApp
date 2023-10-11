@@ -22,13 +22,15 @@ function AppContent({ isLogin, setIsLogin, activeUser, setActiveUser }) {
   return (
     <Suspense
       fallback={
-        <ReactLoading
-          type="bars"
-          color="#001529"
-          height={"10%"}
-          width={"10%"}
-          className="loading-page"
-        />
+        <div className="d-flex flex-column align-items-center loading-page">
+          <ReactLoading
+            type="bars"
+            color="#001529"
+            height="150%"
+            width="150%"
+          />
+          <p className="fw-semibold fst-italic">Loading...</p>
+        </div>
       }
     >
       <Routes>

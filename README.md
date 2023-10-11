@@ -20,29 +20,37 @@ A project management website is a platform that helps teams and organizations ef
 
 `1` Open VS Code -> Open Root Folder.
 
-`2` Open Terminal -> Run
+`2` Open Terminal -> Change directory to "backend" folder -> Install packages -> Start
 
 ```sh
 cd backend
 ```
 
-`3` Install `concurrently` package
-
 ```sh
-npm install --save concurrently
-```
-
-`4` Continue run
-
-```sh
-npm run install-all
+npm install
 ```
 
 ```sh
-npm run start-all
+npm start
 ```
 
-(I have written more code in "backend/package.json", so only run terminal at backend, frontend side will be run at the same time)
+`3` Change directory to "frontend" folder -> Install packages -> Start
+
+```sh
+cd ..
+```
+
+```sh
+cd frontend
+```
+
+```sh
+npm install
+```
+
+```sh
+npm start
+```
 
 ### • **Overview functions of the project**
 

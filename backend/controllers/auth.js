@@ -30,10 +30,15 @@ exports.postSignup = async (req, res, next) => {
   const email = req.body.email;
   const password = req.body.password;
   const passwordConfirm = req.body.passwordConfirm;
+  const agreement = req.body.agreement;
 
   if (passwordConfirm !== password)
     return res.status(422).json({
       passwordConfirm: { msg: "Mật khẩu xác nhận không khớp" },
+    });
+  if (agreement === false)
+    return res.status(422).json({
+      agreement: { msg: "Vui lòng đồng ý với các điều khoản và điều kiện" },
     });
 
   try {
@@ -43,7 +48,7 @@ exports.postSignup = async (req, res, next) => {
       email: email,
       password: hashedPw,
     });
-    const result = await user.save();
+    await user.save();
     res.status(201).json({
       success: true,
       msg: "Đăng ký tài khoản thành công",

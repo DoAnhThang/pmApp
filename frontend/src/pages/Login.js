@@ -12,9 +12,15 @@ const tailFormItemLayout = {
   wrapperCol: { xs: { span: 24, offset: 0 }, sm: { span: 14, offset: 6 } },
 };
 
+const initValues = {
+  email: null,
+  password: null,
+};
+
 function Login({ setIsLogin, setActiveUser }) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(initValues);
 
   const postLogin = async (formValues) => {
     try {
@@ -35,9 +41,7 @@ function Login({ setIsLogin, setActiveUser }) {
         navigate("/");
       } else {
         for (const key in data) {
-          if (key === "email" || key === "password") {
-            message.error(data[key].msg);
-          }
+          setErrorMsg((prev) => ({ ...prev, [key]: data[key].msg }));
         }
       }
       setLoading(false);
@@ -48,6 +52,7 @@ function Login({ setIsLogin, setActiveUser }) {
 
   const onSubmit = (values) => {
     setLoading(true);
+    setErrorMsg(initValues);
     postLogin(values);
   };
   return (
@@ -75,7 +80,8 @@ function Login({ setIsLogin, setActiveUser }) {
               message: "Vui lòng nhập địa chỉ e-mail hợp lệ",
             },
           ]}
-          hasFeedback
+          validateStatus={errorMsg.email && "error"}
+          help={errorMsg.email ? errorMsg.email : null}
         >
           <Input
             prefix={<MailOutlined className="site-form-item-icon" />}
@@ -97,7 +103,8 @@ function Login({ setIsLogin, setActiveUser }) {
                 "Mật khẩu phải có ít nhất 8 kí tự bao gồm chữ, số và kí tự đặc biệt",
             },
           ]}
-          hasFeedback
+          validateStatus={errorMsg.password && "error"}
+          help={errorMsg.password ? errorMsg.password : null}
         >
           <Input.Password
             prefix={<LockOutlined className="site-form-item-icon" />}
@@ -109,7 +116,7 @@ function Login({ setIsLogin, setActiveUser }) {
         <Form.Item {...tailFormItemLayout}>
           <div className="d-flex justify-content-between">
             <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox>Nhớ mật khẩu</Checkbox>
+              <Checkbox>Lưu thông tin đăng nhập</Checkbox>
             </Form.Item>
             <Link className="login-form-forgot" to="#">
               Quên mật khẩu
@@ -124,7 +131,7 @@ function Login({ setIsLogin, setActiveUser }) {
             loading={loading}
             className="login-form-button d-block"
           >
-            {loading ? "Loading ..." : "Đăng nhập"}
+            {loading ? "Loading..." : "Đăng nhập"}
           </Button>
           <div className="mt-3">
             Chưa có tài khoản? <Link to="/signup">Đăng ký ngay</Link>
