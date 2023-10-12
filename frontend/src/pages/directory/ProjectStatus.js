@@ -5,7 +5,7 @@ import PageTitle from "../../components/UI/PageTitle";
 import DirectoryList from "../../components/directory/DirectoryList";
 import DirectoryAdd from "../../components/directory/DirectoryAdd";
 import DirectoryDetail from "../../components/directory/DirectoryDetail";
-import { SERVER_URL, recordsPerPage } from "../../data/api";
+import { SERVER_URL, recordsPerPage } from "../../api/api";
 
 function ProjectStatus() {
   const [loading, setLoading] = useState(false);

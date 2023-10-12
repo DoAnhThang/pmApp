@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input, message } from "antd";
-import { SERVER_URL } from "../data/api";
+import { SERVER_URL } from "../../api/api";
 
 const formItemLayout = {
   labelCol: { xs: { span: 24 }, sm: { span: 6 } },

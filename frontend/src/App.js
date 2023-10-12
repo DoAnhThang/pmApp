@@ -7,7 +7,7 @@ import AppHeader from "./components/layout/AppHeader";
 import AppSider from "./components/layout/AppSider";
 import AppContent from "./components/layout/AppContent";
 import AppFooter from "./components/layout/AppFooter";
-import { SERVER_URL } from "./data/api";
+import { SERVER_URL } from "./api/api";
 
 function App() {
   const navigate = useNavigate();

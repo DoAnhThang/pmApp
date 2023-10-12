@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Modal, Form, DatePicker, Row, Col, Input, Select } from "antd";
-import { SERVER_URL } from "../../data/api";
+import { SERVER_URL } from "../../api/api";
 import moment from "moment";
 import dayjs from "dayjs";
 

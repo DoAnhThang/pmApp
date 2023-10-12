@@ -9,7 +9,7 @@ import {
   WarningOutlined,
 } from "@ant-design/icons";
 import DashboardCard from "../UI/DashboardCard";
-import { SERVER_URL } from "../../data/api";
+import { SERVER_URL } from "../../api/api";
 
 function ProjectStatistic() {
   const [projectStatistic, setProjectStatistic] = useState({

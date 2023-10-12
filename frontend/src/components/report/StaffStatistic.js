@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "antd";
 import DashboardCard from "../UI/DashboardCard";
-import { SERVER_URL } from "../../data/api";
+import { SERVER_URL } from "../../api/api";
 
 function StaffStatistic() {
   const [staffStatistic, setStaffStatistic] = useState({

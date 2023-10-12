@@ -29,7 +29,10 @@ router.post(
           }
         });
       }),
-    body("password", "Mật khẩu phải dài ít nhất 8 ký tự")
+    body(
+      "password",
+      "Mật khẩu phải dài ít nhất 8 ký tự bao gồm chữ, số và kí tự đặc biệt"
+    )
       .trim()
       .isAlphanumeric()
       .isLength({ min: 8 }),

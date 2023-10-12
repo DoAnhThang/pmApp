@@ -2,7 +2,7 @@ import React from "react";
 import { Empty, Table } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import Actions from "../UI/Actions";
-import { filterDropdownSearch } from "../../data/api";
+import { filterDropdownSearch } from "../../api/api";
 
 function DirectoryList({
   loading,

@@ -5,7 +5,7 @@ import PageTitle from "../../components/UI/PageTitle";
 import ProjectList from "../../components/management/ProjectList";
 import ProjectAdd from "../../components/management/ProjectAdd";
 import ProjectDetail from "../../components/management/ProjectDetail";
-import { SERVER_URL, recordsPerPage } from "../../data/api";
+import { SERVER_URL, recordsPerPage } from "../../api/api";
 
 function Project() {
   const [loading, setLoading] = useState(false);

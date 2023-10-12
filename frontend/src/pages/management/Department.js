@@ -5,7 +5,7 @@ import PageTitle from "../../components/UI/PageTitle";
 import DepartmentList from "../../components/management/DepartmentList";
 import DepartmentAdd from "../../components/management/DepartmentAdd";
 import DepartmentDetail from "../../components/management/DepartmentDetail";
-import { SERVER_URL, recordsPerPage } from "../../data/api";
+import { SERVER_URL, recordsPerPage } from "../../api/api";
 
 function Department() {
   const [loading, setLoading] = useState(false);

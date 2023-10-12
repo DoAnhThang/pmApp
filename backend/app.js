@@ -33,14 +33,14 @@ app.use(
 app.use(cookieParser());
 app.use(
   session({
-    secret: "secretsofthangda",
+    secret: "secretsofthangdafx19838",
     resave: false,
     saveUninitialized: false,
     store: store,
     cookie: {
-      sameSite: "none",
-      secure: true,
-      maxAge: 24 * 60 * 60 * 1000,
+      // sameSite: "none",
+      // secure: false,
+      maxAge: 24 * 60 * 60 * 1000, // 24h
     },
   })
 );

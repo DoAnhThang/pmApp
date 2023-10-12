@@ -12,7 +12,7 @@ import {
   Select,
 } from "antd";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
-import { SERVER_URL } from "../../data/api";
+import { SERVER_URL } from "../../api/api";
 import moment from "moment";
 import dayjs from "dayjs";
 

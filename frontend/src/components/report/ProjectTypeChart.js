@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, Col, Row } from "antd";
-import { SERVER_URL } from "../../data/api";
+import { SERVER_URL } from "../../api/api";
 
 import {
   Chart as ChartJS,

@@ -2,7 +2,10 @@ import React, { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import ReactLoading from "react-loading";
 
-const Home = lazy(() => import("../../pages/Home"));
+const Signup = lazy(() => import("../../pages/auth/Signup"));
+const Login = lazy(() => import("../../pages/auth/Login"));
+const Home = lazy(() => import("../../pages/view/Home"));
+const PageNotFound = lazy(() => import("../../pages/view/PageNotFound"));
 const ProjectType = lazy(() => import("../../pages/directory/ProjectType"));
 const ProjectStatus = lazy(() => import("../../pages/directory/ProjectStatus"));
 const TechStack = lazy(() => import("../../pages/directory/TechStack"));
@@ -14,9 +17,6 @@ const ProjectQuantity = lazy(() =>
   import("../../pages/report/ProjectQuantity")
 );
 const StaffQuantity = lazy(() => import("../../pages/report/StaffQuantity"));
-const Signup = lazy(() => import("../../pages/Signup"));
-const Login = lazy(() => import("../../pages/Login"));
-const PageNotFound = lazy(() => import("../../pages/PageNotFound"));
 
 function AppContent({ isLogin, setIsLogin, activeUser, setActiveUser }) {
   return (

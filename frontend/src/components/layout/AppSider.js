@@ -11,7 +11,7 @@ import { Menu, message } from "antd";
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { SERVER_URL } from "../../data/api";
+import { SERVER_URL } from "../../api/api";
 
 function AppSider({ isLogin, setIsLogin }) {
   const navigate = useNavigate();

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Col, Form, Input, Modal, Row, Select } from "antd";
-import { SERVER_URL } from "../../data/api";
+import { SERVER_URL } from "../../api/api";
 
 const initFormAdd = {
   name: "",

@@ -5,7 +5,7 @@ import PageTitle from "../../components/UI/PageTitle";
 import StaffList from "../../components/management/StaffList";
 import StaffAdd from "../../components/management/StaffAdd";
 import StaffDetail from "../../components/management/StaffDetail";
-import { SERVER_URL, recordsPerPage } from "../../data/api";
+import { SERVER_URL, recordsPerPage } from "../../api/api";
 import ProjectDetail from "../../components/management/ProjectDetail";
 
 function Staff() {

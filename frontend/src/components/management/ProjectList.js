@@ -3,7 +3,7 @@ import { SearchOutlined } from "@ant-design/icons";
 import { Empty, Table } from "antd";
 import TagDisplay from "../UI/TagDisplay";
 import Actions from "../UI/Actions";
-import { filterDropdownSearch } from "../../data/api";
+import { filterDropdownSearch } from "../../api/api";
 
 function ProjectList({
   loading,

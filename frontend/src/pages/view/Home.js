@@ -21,7 +21,7 @@ function Home({ activeUser }) {
     <div
       className="text-center vh-100"
       style={{
-        backgroundImage: `url(${require("../data/pm-bg.jpg")})`,
+        backgroundImage: `url(${require("../../assets/images/pm-bg.jpg")})`,
         backgroundSize: "cover",
         backgroundPosition: "center center",
       }}
