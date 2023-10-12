@@ -20,7 +20,7 @@ A project management website is a platform that helps teams and organizations ef
 
 `1` Open VS Code -> Open Root Folder.
 
-`2` Open Terminal -> Change directory to "backend" folder -> Install packages -> Start
+`2` Open Terminal -> Change directory to "backend" folder -> Install packages -> Start dev. mode
 
 ```sh
 cd backend
@@ -31,10 +31,10 @@ npm install
 ```
 
 ```sh
-npm start
+npm start:dev
 ```
 
-`3` Change directory to "frontend" folder -> Install packages -> Start
+`3` Change directory to "frontend" folder -> Install packages -> Start run in localhost
 
 ```sh
 cd ..
