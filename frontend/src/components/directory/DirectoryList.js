@@ -117,7 +117,6 @@ function DirectoryList({
           setPage(page);
           setPageSize(pageSize);
         },
-        hideOnSinglePage: true,
       }}
       bordered={true}
       size="middle"

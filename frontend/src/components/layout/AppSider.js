@@ -13,7 +13,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SERVER_URL } from "../../api/api";
 
-function AppSider({ isLogin, setIsLogin }) {
+function AppSider({ isLogin, setIsLogin, setMenuMobileMode }) {
   const navigate = useNavigate();
   const getMatchingKey = () => {
     if (
@@ -79,7 +79,10 @@ function AppSider({ isLogin, setIsLogin }) {
           onOpenChange={onOpenChange}
           onClick={(item) => {
             if (item.key === "logout") postLogout();
-            else navigate(item.key);
+            else {
+              navigate(item.key);
+              setMenuMobileMode(false);
+            }
           }}
           items={[
             {

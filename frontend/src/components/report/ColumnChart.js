@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Card, Col, Row } from "antd";
-import { SERVER_URL } from "../../api/api";
 
 import {
   Chart as ChartJS,
@@ -21,28 +20,7 @@ ChartJS.register(
   Legend
 );
 
-function ProjectTypeChart() {
-  const [projectTypeChart, setProjectTypeChart] = useState({
-    labels: [],
-    data: [],
-  });
-
-  const getProjectTypeChart = async () => {
-    try {
-      const res = await fetch(`${SERVER_URL}/report/project-type-chart`, {
-        credentials: "include",
-      });
-      const data = await res.json();
-      // console.log("getProjectTypeChart: ", data);
-      if (data.success) setProjectTypeChart(data.data);
-    } catch (err) {
-      console.log("getProjectTypeChart: ", err);
-    }
-  };
-  useEffect(() => {
-    getProjectTypeChart();
-  }, []);
-
+function ColumnChart({ dataChart, titleChart, labelColumn, colorColumn }) {
   const options = {
     maintainAspectRatio: false,
     responsive: true,
@@ -52,7 +30,7 @@ function ProjectTypeChart() {
       },
       title: {
         display: true,
-        text: "Các loại dự án",
+        text: titleChart,
         font: {
           size: 16,
           family: "Roboto",
@@ -71,12 +49,12 @@ function ProjectTypeChart() {
   };
 
   const data = {
-    labels: projectTypeChart.labels,
+    labels: dataChart.labels,
     datasets: [
       {
-        label: "Số dự án",
-        data: projectTypeChart.data,
-        backgroundColor: "#95de64",
+        label: labelColumn,
+        data: dataChart.data,
+        backgroundColor: colorColumn,
         barThickness: 20,
       },
     ],
@@ -93,4 +71,4 @@ function ProjectTypeChart() {
   );
 }
 
-export default ProjectTypeChart;
+export default ColumnChart;

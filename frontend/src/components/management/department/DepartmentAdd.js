@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { Col, Form, Input, Modal, Row, Select } from "antd";
-import { SERVER_URL } from "../../api/api";
+import { SERVER_URL } from "../../../api/api";
 
 const initFormAdd = {
   name: "",

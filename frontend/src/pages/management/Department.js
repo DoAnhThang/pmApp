@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from "react";
 
 import PageTitle from "../../components/UI/PageTitle";
-import DepartmentList from "../../components/management/DepartmentList";
-import DepartmentAdd from "../../components/management/DepartmentAdd";
-import DepartmentDetail from "../../components/management/DepartmentDetail";
+import DepartmentList from "../../components/management/department/DepartmentList";
+import DepartmentAdd from "../../components/management/department/DepartmentAdd";
+import DepartmentDetail from "../../components/management/department/DepartmentDetail";
 import { SERVER_URL, recordsPerPage } from "../../api/api";
 
 function Department() {

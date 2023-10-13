@@ -1,13 +1,13 @@
 import React from "react";
 import { SearchOutlined } from "@ant-design/icons";
 import { Empty, Table } from "antd";
-import TagDisplay from "../UI/TagDisplay";
-import Actions from "../UI/Actions";
-import { filterDropdownSearch } from "../../api/api";
+import TagDisplay from "../../UI/TagDisplay";
+import Actions from "../../UI/Actions";
+import { filterDropdownSearch } from "../../../api/api";
 
-function ProjectList({
+function DepartmentList({
   loading,
-  projects,
+  departments,
   page,
   setPage,
   pageSize,
@@ -19,7 +19,7 @@ function ProjectList({
   setEdit,
   deleteRecord,
 }) {
-  const dataSource = projects.map((record) => ({
+  const dataSource = departments.map((record) => ({
     ...record,
     key: record._id,
   }));
@@ -40,47 +40,12 @@ function ProjectList({
         record.name.toLowerCase().includes(text.toLowerCase()),
     },
     {
-      title: "Ngày bắt đầu",
-      dataIndex: "startTime",
+      title: "Chức năng, nhiệm vụ",
+      dataIndex: "feature",
       filterDropdown: filterDropdownSearch,
       filterIcon: () => <SearchOutlined />,
       onFilter: (text, record) =>
-        record.startTime.toLowerCase().includes(text.toLowerCase()),
-    },
-    {
-      title: "Ngày kết thúc",
-      dataIndex: "endTime",
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.endTime.toLowerCase().includes(text.toLowerCase()),
-    },
-    {
-      title: "Loại dự án",
-      dataIndex: "project_type",
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.project_type.toLowerCase().includes(text.toLowerCase()),
-      render: (text) => <span>{text.length > 0 ? text[0].name : ""}</span>,
-    },
-    {
-      title: "Trạng thái dự án",
-      dataIndex: "project_status",
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.project_status.toLowerCase().includes(text.toLowerCase()),
-      render: (text) => <span>{text.length > 0 ? text[0].name : ""}</span>,
-    },
-    {
-      title: "Nhóm khách hàng",
-      dataIndex: "customer_group",
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.customer_group.toLowerCase().includes(text.toLowerCase()),
-      render: (text) => <span>{text.length > 0 ? text[0].name : ""}</span>,
+        record.feature.toLowerCase().includes(text.toLowerCase()),
     },
     {
       title: "Các tech stack",
@@ -88,12 +53,12 @@ function ProjectList({
       render: (text) => <TagDisplay tags={text} maxTags={2} />,
     },
     {
-      title: "Bộ phận tham gia",
-      dataIndex: "departments",
-      render: (text) => <TagDisplay tags={text} maxTags={2} />,
+      title: "Các dự án",
+      dataIndex: "projects",
+      render: (text) => <TagDisplay tags={text} maxTags={1} />,
     },
     {
-      title: "Nhân viên tham gia",
+      title: "Nhân viên",
       dataIndex: "staffs",
       render: (text) => <TagDisplay tags={text} maxTags={1} />,
     },
@@ -130,7 +95,6 @@ function ProjectList({
           setPage(page);
           setPageSize(pageSize);
         },
-        hideOnSinglePage: true,
       }}
       bordered={true}
       size="middle"
@@ -143,4 +107,4 @@ function ProjectList({
   );
 }
 
-export default ProjectList;
+export default DepartmentList;

@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from "react";
 
 import PageTitle from "../../components/UI/PageTitle";
-import ProjectList from "../../components/management/ProjectList";
-import ProjectAdd from "../../components/management/ProjectAdd";
-import ProjectDetail from "../../components/management/ProjectDetail";
+import ProjectList from "../../components/management/project/ProjectList";
+import ProjectAdd from "../../components/management/project/ProjectAdd";
+import ProjectDetail from "../../components/management/project/ProjectDetail";
 import { SERVER_URL, recordsPerPage } from "../../api/api";
 
 function Project() {

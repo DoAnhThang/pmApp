@@ -29,8 +29,13 @@ const items = [
   { type: "divider" },
 ];
 
-function AppHeader({ isLogin, setIsLogin, activeUser }) {
-  const [menuMobileMode, setMenuMobileMode] = useState(false);
+function AppHeader({
+  isLogin,
+  setIsLogin,
+  activeUser,
+  menuMobileMode,
+  setMenuMobileMode,
+}) {
   const [todos, setTodos] = useState([]);
   const [todosOpen, setTodosOpen] = useState(false);
   // const [quotes, setQuotes] = useState([]);
@@ -62,7 +67,11 @@ function AppHeader({ isLogin, setIsLogin, activeUser }) {
         maskClosable
         style={{ backgroundColor: "#001529" }}
       >
-        <AppSider isLogin={isLogin} setIsLogin={setIsLogin} />
+        <AppSider
+          isLogin={isLogin}
+          setIsLogin={setIsLogin}
+          setMenuMobileMode={setMenuMobileMode}
+        />
       </Drawer>
 
       {/* Logo */}

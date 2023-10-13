@@ -1,9 +1,9 @@
 import React from "react";
 import { SearchOutlined } from "@ant-design/icons";
 import { Empty, Table } from "antd";
-import TagDisplay from "../UI/TagDisplay";
-import Actions from "../UI/Actions";
-import { filterDropdownSearch } from "../../api/api";
+import TagDisplay from "../../UI/TagDisplay";
+import Actions from "../../UI/Actions";
+import { filterDropdownSearch } from "../../../api/api";
 
 function StaffList({
   loading,
@@ -124,7 +124,6 @@ function StaffList({
           setPage(page);
           setPageSize(pageSize);
         },
-        hideOnSinglePage: true,
       }}
       bordered={true}
       size="middle"

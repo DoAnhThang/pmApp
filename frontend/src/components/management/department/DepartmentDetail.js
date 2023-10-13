@@ -1,6 +1,6 @@
 import React from "react";
 import { Descriptions, Modal } from "antd";
-import TagDisplay from "../UI/TagDisplay";
+import TagDisplay from "../../UI/TagDisplay";
 
 function DepartmentDetail({ showDetail, setShowDetail, recordDetail }) {
   const labels = {

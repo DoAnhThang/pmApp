@@ -103,10 +103,18 @@ exports.getProjectTypeChart = async (req, res, next) => {
       },
     ]);
     const projectTypeChart = { labels: [], data: [] };
-    results.forEach((result) => {
-      projectTypeChart.labels.push(result.name);
-      projectTypeChart.data.push(result.totalProjectType);
-    });
+    results
+      .sort((a, b) =>
+        a.name.toLowerCase() > b.name.toLowerCase()
+          ? 1
+          : a.name.toLowerCase() === b.name.toLowerCase()
+          ? 0
+          : -1
+      )
+      .forEach((result) => {
+        projectTypeChart.labels.push(result.name);
+        projectTypeChart.data.push(result.totalProjectType);
+      });
     res.status(200).json({
       success: true,
       data: projectTypeChart,

@@ -13,6 +13,7 @@ function App() {
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(false);
   const [activeUser, setActiveUser] = useState("");
+  const [menuMobileMode, setMenuMobileMode] = useState(false);
 
   const getAuth = async () => {
     try {
@@ -54,14 +55,23 @@ function App() {
             isLogin={isLogin}
             setIsLogin={setIsLogin}
             activeUser={activeUser}
+            menuMobileMode={menuMobileMode}
+            setMenuMobileMode={setMenuMobileMode}
           />
         </Layout.Header>
         <Layout>
           <Layout.Sider className="bg-white mobileHidden">
-            <AppSider isLogin={isLogin} setIsLogin={setIsLogin} />
+            <AppSider
+              isLogin={isLogin}
+              setIsLogin={setIsLogin}
+              setMenuMobileMode={setMenuMobileMode}
+            />
           </Layout.Sider>
           <Layout>
-            <Layout.Content className="position-relative">
+            <Layout.Content
+              className="position-relative"
+              style={{ minHeight: "91vh" }}
+            >
               <AppContent
                 isLogin={isLogin}
                 setIsLogin={setIsLogin}

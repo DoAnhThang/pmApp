@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from "react";
 
 import PageTitle from "../../components/UI/PageTitle";
-import StaffList from "../../components/management/StaffList";
-import StaffAdd from "../../components/management/StaffAdd";
-import StaffDetail from "../../components/management/StaffDetail";
+import StaffList from "../../components/management/staff/StaffList";
+import StaffAdd from "../../components/management/staff/StaffAdd";
+import StaffDetail from "../../components/management/staff/StaffDetail";
 import { SERVER_URL, recordsPerPage } from "../../api/api";
-import ProjectDetail from "../../components/management/ProjectDetail";
+import ProjectDetail from "../../components/management/project/ProjectDetail";
 
 function Staff() {
   const [loading, setLoading] = useState(false);
