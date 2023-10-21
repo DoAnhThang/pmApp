@@ -1,38 +1,31 @@
+const { validationResult } = require("express-validator");
 const ProjectType = require("../models/project-type");
 const ProjectStatus = require("../models/project-status");
 const TechStack = require("../models/tech-stack");
 const CustomerGroup = require("../models/customer-group");
+const { paginateData } = require("../utilities/pagination");
 
 // directory CRUD: Project Type
 exports.getProjectTypes = async (req, res, next) => {
   const page = Number(req.query.page);
   const pageSize = Number(req.query.pageSize);
   try {
-    const totalProjectTypes = await ProjectType.countDocuments();
-    if (totalProjectTypes === 0) {
-      return res.json({ msg: "Not found project types" });
+    const result = await paginateData(ProjectType, page, pageSize);
+    if (result.error) {
+      return res.status(404).json({ msg: "Not found project types" });
     }
-    if (page && pageSize) {
-      const totalPages = Math.ceil(totalProjectTypes / pageSize);
-      const paginatedData = await ProjectType.find()
-        .skip((page - 1) * pageSize)
-        .limit(pageSize);
-      res.status(200).json({
-        success: true,
-        data: paginatedData,
-        currentPage: page,
-        totalPages,
-        totalProjectTypes,
-      });
-    } else {
-      const projectTypes = await ProjectType.find({}, "_id name");
-      res.status(200).json({ success: true, data: projectTypes });
-    }
+    res.status(200).json({ success: true, ...result });
   } catch (err) {
     next(err);
   }
 };
 exports.postProjectType = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const errorObj = errors.mapped();
+    return res.status(400).json(errorObj);
+  }
+
   const name = req.body.name;
   const short_desc = req.body.short_desc;
   const long_desc = req.body.long_desc;
@@ -56,6 +49,12 @@ exports.postProjectType = async (req, res, next) => {
   }
 };
 exports.patchProjectType = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const errorObj = errors.mapped();
+    return res.status(400).json(errorObj);
+  }
+
   const projectTypeId = req.params.projectTypeId;
   const name = req.body.name;
   const short_desc = req.body.short_desc;
@@ -65,7 +64,7 @@ exports.patchProjectType = async (req, res, next) => {
   try {
     const projectType = await ProjectType.findById(projectTypeId);
     if (!projectType) {
-      return res.status(204).json({ errorMsg: "Not found the project type" });
+      return res.status(404).json({ errorMsg: "Not found the project type" });
     }
     projectType.name = name;
     projectType.short_desc = short_desc;
@@ -82,17 +81,15 @@ exports.patchProjectType = async (req, res, next) => {
   }
 };
 exports.deleteProjectType = async (req, res, next) => {
-  const projectTypeId = req.params.projectTypeId;
+  const recordIds = req.body.ids;
   try {
-    const projectType = await ProjectType.findById(projectTypeId);
-    if (!projectType) {
-      return res.status(204).json({ errorMsg: "Not found the project type" });
+    const result = await Promise.all(
+      recordIds.map(async (id) => await ProjectType.findByIdAndRemove(id))
+    );
+    if (result.length === 0) {
+      return res.status(404).json({ errorMsg: "Not found the record" });
     }
-    await ProjectType.findByIdAndRemove(projectTypeId);
-    res.status(200).json({
-      success: true,
-      msg: "Deleted successfully!",
-    });
+    res.status(200).json({ success: true, msg: "Deleted successfully!" });
   } catch (err) {
     next(err);
   }
@@ -103,31 +100,22 @@ exports.getProjectStatuses = async (req, res, next) => {
   const page = Number(req.query.page);
   const pageSize = Number(req.query.pageSize);
   try {
-    const totalProjectStatuses = await ProjectStatus.countDocuments();
-    if (totalProjectStatuses === 0) {
-      return res.json({ msg: "Not found project statuses" });
+    const result = await paginateData(ProjectStatus, page, pageSize);
+    if (result.error) {
+      return res.status(404).json({ msg: "Not found project statuses" });
     }
-    if (page && pageSize) {
-      const totalPages = Math.ceil(totalProjectStatuses / pageSize);
-      const paginatedData = await ProjectStatus.find()
-        .skip((page - 1) * pageSize)
-        .limit(pageSize);
-      res.status(200).json({
-        success: true,
-        data: paginatedData,
-        currentPage: page,
-        totalPages,
-        totalProjectStatuses,
-      });
-    } else {
-      const projectStatuses = await ProjectStatus.find({}, "_id name");
-      res.status(200).json({ success: true, data: projectStatuses });
-    }
+    res.status(200).json({ success: true, ...result });
   } catch (err) {
     next(err);
   }
 };
 exports.postProjectStatus = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const errorObj = errors.mapped();
+    return res.status(400).json(errorObj);
+  }
+
   const name = req.body.name;
   const short_desc = req.body.short_desc;
   const long_desc = req.body.long_desc;
@@ -149,6 +137,12 @@ exports.postProjectStatus = async (req, res, next) => {
   }
 };
 exports.patchProjectStatus = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const errorObj = errors.mapped();
+    return res.status(400).json(errorObj);
+  }
+
   const projectStatusId = req.params.projectStatusId;
   const name = req.body.name;
   const short_desc = req.body.short_desc;
@@ -157,7 +151,7 @@ exports.patchProjectStatus = async (req, res, next) => {
   try {
     const projectStatus = await ProjectStatus.findById(projectStatusId);
     if (!projectStatus) {
-      return res.status(204).json({ errorMsg: "Not found the project status" });
+      return res.status(404).json({ errorMsg: "Not found the project status" });
     }
     projectStatus.name = name;
     projectStatus.short_desc = short_desc;
@@ -173,17 +167,15 @@ exports.patchProjectStatus = async (req, res, next) => {
   }
 };
 exports.deleteProjectStatus = async (req, res, next) => {
-  const projectStatusId = req.params.projectStatusId;
+  const recordIds = req.body.ids;
   try {
-    const projectStatus = await ProjectStatus.findById(projectStatusId);
-    if (!projectStatus) {
-      return res.status(204).json({ errorMsg: "Not found the project status" });
+    const result = await Promise.all(
+      recordIds.map(async (id) => await ProjectStatus.findByIdAndRemove(id))
+    );
+    if (result.length === 0) {
+      return res.status(404).json({ errorMsg: "Not found the record" });
     }
-    await ProjectStatus.findByIdAndRemove(projectStatusId);
-    res.status(200).json({
-      success: true,
-      msg: "Deleted successfully!",
-    });
+    res.status(200).json({ success: true, msg: "Deleted successfully!" });
   } catch (err) {
     next(err);
   }
@@ -194,31 +186,22 @@ exports.getTechStacks = async (req, res, next) => {
   const page = Number(req.query.page);
   const pageSize = Number(req.query.pageSize);
   try {
-    const totalTechStacks = await TechStack.countDocuments();
-    if (totalTechStacks === 0) {
-      return res.json({ msg: "Not found tech stacks" });
+    const result = await paginateData(TechStack, page, pageSize);
+    if (result.error) {
+      return res.status(404).json({ msg: "Not found tech stacks" });
     }
-    if (page && pageSize) {
-      const totalPages = Math.ceil(totalTechStacks / pageSize);
-      const paginatedData = await TechStack.find()
-        .skip((page - 1) * pageSize)
-        .limit(pageSize);
-      res.status(200).json({
-        success: true,
-        data: paginatedData,
-        currentPage: page,
-        totalPages,
-        totalTechStacks,
-      });
-    } else {
-      const techStacks = await TechStack.find({}, "_id name");
-      res.status(200).json({ success: true, data: techStacks });
-    }
+    res.status(200).json({ success: true, ...result });
   } catch (err) {
     next(err);
   }
 };
 exports.postTechStack = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const errorObj = errors.mapped();
+    return res.status(400).json(errorObj);
+  }
+
   const name = req.body.name;
   const short_desc = req.body.short_desc;
   const long_desc = req.body.long_desc;
@@ -240,6 +223,12 @@ exports.postTechStack = async (req, res, next) => {
   }
 };
 exports.patchTechStack = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const errorObj = errors.mapped();
+    return res.status(400).json(errorObj);
+  }
+
   const techStackId = req.params.techStackId;
   const name = req.body.name;
   const short_desc = req.body.short_desc;
@@ -248,7 +237,7 @@ exports.patchTechStack = async (req, res, next) => {
   try {
     const techStack = await TechStack.findById(techStackId);
     if (!techStack) {
-      return res.status(204).json({ errorMsg: "Not found the tech stack" });
+      return res.status(404).json({ errorMsg: "Not found the tech stack" });
     }
     techStack.name = name;
     techStack.short_desc = short_desc;
@@ -264,17 +253,15 @@ exports.patchTechStack = async (req, res, next) => {
   }
 };
 exports.deleteTechStack = async (req, res, next) => {
-  const techStackId = req.params.techStackId;
+  const recordIds = req.body.ids;
   try {
-    const techStack = await TechStack.findById(techStackId);
-    if (!techStack) {
-      return res.status(204).json({ errorMsg: "Not found the tech stack" });
+    const result = await Promise.all(
+      recordIds.map(async (id) => await TechStack.findByIdAndRemove(id))
+    );
+    if (result.length === 0) {
+      return res.status(404).json({ errorMsg: "Not found the record" });
     }
-    await TechStack.findByIdAndRemove(techStackId);
-    res.status(200).json({
-      success: true,
-      msg: "Deleted successfully!",
-    });
+    res.status(200).json({ success: true, msg: "Deleted successfully!" });
   } catch (err) {
     next(err);
   }
@@ -285,31 +272,22 @@ exports.getCustomerGroups = async (req, res, next) => {
   const page = Number(req.query.page);
   const pageSize = Number(req.query.pageSize);
   try {
-    const totalCustomerGroups = await CustomerGroup.countDocuments();
-    if (totalCustomerGroups === 0) {
-      return res.json({ msg: "Not found customer groups" });
+    const result = await paginateData(CustomerGroup, page, pageSize);
+    if (result.error) {
+      return res.status(404).json({ msg: "Not found customer groups" });
     }
-    if (page && pageSize) {
-      const totalPages = Math.ceil(totalCustomerGroups / pageSize);
-      const paginatedData = await CustomerGroup.find()
-        .skip((page - 1) * pageSize)
-        .limit(pageSize);
-      res.status(200).json({
-        success: true,
-        data: paginatedData,
-        currentPage: page,
-        totalPages,
-        totalCustomerGroups,
-      });
-    } else {
-      const customerGroups = await CustomerGroup.find({}, "_id name");
-      res.status(200).json({ success: true, data: customerGroups });
-    }
+    res.status(200).json({ success: true, ...result });
   } catch (err) {
     next(err);
   }
 };
 exports.postCustomerGroup = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const errorObj = errors.mapped();
+    return res.status(400).json(errorObj);
+  }
+
   const name = req.body.name;
   const short_desc = req.body.short_desc;
   const long_desc = req.body.long_desc;
@@ -333,6 +311,12 @@ exports.postCustomerGroup = async (req, res, next) => {
   }
 };
 exports.patchCustomerGroup = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const errorObj = errors.mapped();
+    return res.status(400).json(errorObj);
+  }
+
   const customerGroupId = req.params.customerGroupId;
   const name = req.body.name;
   const short_desc = req.body.short_desc;
@@ -342,7 +326,7 @@ exports.patchCustomerGroup = async (req, res, next) => {
   try {
     const customerGroup = await CustomerGroup.findById(customerGroupId);
     if (!customerGroup) {
-      return res.status(204).json({ errorMsg: "Not found the customer group" });
+      return res.status(404).json({ errorMsg: "Not found the customer group" });
     }
     customerGroup.name = name;
     customerGroup.short_desc = short_desc;
@@ -359,17 +343,15 @@ exports.patchCustomerGroup = async (req, res, next) => {
   }
 };
 exports.deleteCustomerGroup = async (req, res, next) => {
-  const customerGroupId = req.params.customerGroupId;
+  const recordIds = req.body.ids;
   try {
-    const customerGroup = await CustomerGroup.findById(customerGroupId);
-    if (!customerGroup) {
-      return res.status(204).json({ errorMsg: "Not found the customer group" });
+    const result = await Promise.all(
+      recordIds.map(async (id) => await CustomerGroup.findByIdAndRemove(id))
+    );
+    if (result.length === 0) {
+      return res.status(404).json({ errorMsg: "Not found the record" });
     }
-    await CustomerGroup.findByIdAndRemove(customerGroupId);
-    res.status(200).json({
-      success: true,
-      msg: "Deleted successfully!",
-    });
+    res.status(200).json({ success: true, msg: "Deleted successfully!" });
   } catch (err) {
     next(err);
   }

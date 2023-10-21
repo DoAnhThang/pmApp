@@ -6,6 +6,7 @@ import DepartmentList from "../../components/management/department/DepartmentLis
 import DepartmentAdd from "../../components/management/department/DepartmentAdd";
 import DepartmentDetail from "../../components/management/department/DepartmentDetail";
 import { SERVER_URL, recordsPerPage } from "../../api/api";
+import { message } from "antd";
 
 function Department() {
   const [loading, setLoading] = useState(false);
@@ -17,6 +18,7 @@ function Department() {
   const [recordDetail, setRecordDetail] = useState({});
   const [showForm, setShowForm] = useState(false);
   const [edit, setEdit] = useState(false);
+  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
   // get departments
   const getDepartments = async () => {
@@ -30,7 +32,7 @@ function Department() {
       // console.log("getDepartments:", data);
       if (data.success) {
         setDepartments(data.data);
-        setTotalRecords(data.totalDepartments);
+        setTotalRecords(data.totalRecords);
       } else setDepartments([]);
       setLoading(false);
     } catch (err) {
@@ -39,16 +41,23 @@ function Department() {
   };
 
   // delete department
-  const deleteRecord = async (id) => {
+  const deleteRecord = async (ids) => {
     try {
       // eslint-disable-next-line no-unused-vars
-      const res = await fetch(`${SERVER_URL}/management/department/${id}`, {
+      const res = await fetch(`${SERVER_URL}/management/department`, {
         credentials: "include",
         method: "DELETE",
+        body: JSON.stringify({ ids: ids }),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
-      // const data = await res.json();
+      const data = await res.json();
       // console.log("deleteDepartment: ", data);
+      if (data.success) message.success(data.msg);
+      else message.error(data.errorMsg);
       getDepartments();
+      setSelectedRowKeys([]);
     } catch (err) {
       console.error("deleteDepartment: ", err);
     }
@@ -66,6 +75,8 @@ function Department() {
         setShowForm={setShowForm}
         setEdit={setEdit}
         isShowButton={true}
+        selectedRowKeys={selectedRowKeys}
+        deleteRecord={deleteRecord}
       />
 
       <DepartmentList
@@ -81,6 +92,7 @@ function Department() {
         setShowForm={setShowForm}
         setEdit={setEdit}
         deleteRecord={deleteRecord}
+        setSelectedRowKeys={setSelectedRowKeys}
       />
 
       <DepartmentAdd

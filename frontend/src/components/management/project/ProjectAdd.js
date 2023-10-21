@@ -1,19 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { Modal, Form, DatePicker, Row, Col, Input, Select } from "antd";
+import {
+  Modal,
+  Form,
+  DatePicker,
+  Row,
+  Col,
+  Input,
+  Select,
+  message,
+} from "antd";
 import { SERVER_URL } from "../../../api/api";
 import moment from "moment";
 import dayjs from "dayjs";
 
-const initFormAdd = {
-  name: "",
-  startTime: "",
-  endTime: "",
+const initValues = {
+  name: null,
+  startTime: null,
+  endTime: null,
   project_type: null,
   project_status: null,
   customer_group: null,
-  tech_stacks: [],
-  departments: [],
-  staffs: [],
+  tech_stacks: null,
+  departments: null,
+  staffs: null,
 };
 
 function ProjectAdd({
@@ -23,7 +32,6 @@ function ProjectAdd({
   edit,
   getProjects,
 }) {
-  // console.log("recordDetail: ", recordDetail);
   const [form] = Form.useForm();
   const [techStacks, setTechStacks] = useState([]);
   const [departments, setDepartments] = useState([]);
@@ -31,6 +39,7 @@ function ProjectAdd({
   const [projectTypes, setProjectTypes] = useState([]);
   const [projectStatuses, setProjectStatuses] = useState([]);
   const [customerGroups, setCustomerGroups] = useState([]);
+  const [errorMsg, setErrorMsg] = useState(initValues);
 
   // get data for select form
   const getTechStacks = async () => {
@@ -128,14 +137,15 @@ function ProjectAdd({
         departments: recordDetail.departments.map((item) => item._id),
         staffs: recordDetail.staffs.map((item) => item._id),
       });
-    else form.setFieldsValue(initFormAdd);
+    else form.resetFields();
     getTechStacks();
     getDepartments();
     getStaffs();
     getProjectTypes();
     getProjectStatuses();
     getCustomerGroups();
-  }, [form, edit, recordDetail]);
+    setErrorMsg(initValues);
+  }, [form, edit, recordDetail, showForm]);
 
   // Create / Update
   const addProject = async (values, method) => {
@@ -151,9 +161,17 @@ function ProjectAdd({
           },
         }
       );
-      await res.json();
+      const data = await res.json();
       // console.log("addProject: ", data);
-      getProjects();
+      if (data.success) {
+        message.success(data.msg);
+        setShowForm(false);
+        getProjects();
+      } else {
+        for (const key in data) {
+          setErrorMsg((prev) => ({ ...prev, [key]: data[key].msg }));
+        }
+      }
     } catch (err) {
       console.error("addProject: ", err);
     }
@@ -161,19 +179,17 @@ function ProjectAdd({
 
   // submit form
   const handleSubmit = () => {
+    setErrorMsg(initValues);
     form
       .validateFields()
       .then((values) => {
-        // console.log(values);
         const updatedValues = {
           ...values,
           startTime: moment(values.startTime.$d).format("DD/MM/YYYY"),
           endTime: moment(values.endTime.$d).format("DD/MM/YYYY"),
         };
-        form.resetFields();
         if (edit) addProject(updatedValues, "PATCH");
         else addProject(updatedValues, "POST");
-        setShowForm(false);
       })
       .catch((info) => {
         console.log("Validate Failed:", info);
@@ -197,7 +213,7 @@ function ProjectAdd({
         labelCol={{ span: 24 }}
         wrapperCol={{ span: 24 }}
         layout="horizontal"
-        name="formAdd"
+        name="form"
         scrollToFirstError
         autoComplete="off"
       >
@@ -216,6 +232,8 @@ function ProjectAdd({
                   message: "Tên dự án phải có ít nhất 2 kí tự",
                 },
               ]}
+              validateStatus={errorMsg.name && "error"}
+              help={errorMsg.name ? errorMsg.name : null}
             >
               <Input placeholder="Nhập tên dự án" />
             </Form.Item>
@@ -230,6 +248,8 @@ function ProjectAdd({
                   message: "Ngày bắt đầu không được bỏ trống",
                 },
               ]}
+              validateStatus={errorMsg.startTime && "error"}
+              help={errorMsg.startTime ? errorMsg.startTime : null}
             >
               <DatePicker
                 placeholder="DD/MM/YYYY"
@@ -249,6 +269,8 @@ function ProjectAdd({
                   message: "Ngày kết thúc không được bỏ trống",
                 },
               ]}
+              validateStatus={errorMsg.endTime && "error"}
+              help={errorMsg.endTime ? errorMsg.endTime : null}
             >
               <DatePicker
                 placeholder="DD/MM/YYYY"

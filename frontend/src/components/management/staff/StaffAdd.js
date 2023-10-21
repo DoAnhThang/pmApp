@@ -10,21 +10,22 @@ import {
   Input,
   InputNumber,
   Select,
+  message,
 } from "antd";
 import { MinusCircleOutlined, PlusOutlined } from "@ant-design/icons";
 import { SERVER_URL } from "../../../api/api";
 import moment from "moment";
 import dayjs from "dayjs";
 
-const initFormAdd = {
-  name: "",
-  dob: "",
-  phone_number: "",
+const initValues = {
+  name: null,
+  dob: null,
+  phone_number: null,
   level: null,
   gender: null,
   department: null,
-  tech_stacks: [],
-  projects: [],
+  tech_stacks: null,
+  projects: null,
 };
 
 function StaffAdd({ showForm, setShowForm, recordDetail, edit, getStaffs }) {
@@ -32,6 +33,7 @@ function StaffAdd({ showForm, setShowForm, recordDetail, edit, getStaffs }) {
   const [departments, setDepartments] = useState([]);
   const [techStacks, setTechStacks] = useState([]);
   const [projects, setProjects] = useState([]);
+  const [errorMsg, setErrorMsg] = useState(initValues);
 
   // get data for select form
   const getDepartments = async () => {
@@ -86,11 +88,12 @@ function StaffAdd({ showForm, setShowForm, recordDetail, edit, getStaffs }) {
         })),
         projects: recordDetail.projects.map((item) => item._id),
       });
-    else form.setFieldsValue(initFormAdd);
+    else form.resetFields();
     getDepartments();
     getTechStacks();
     getProjects();
-  }, [form, edit, recordDetail]);
+    setErrorMsg(initValues);
+  }, [form, edit, recordDetail, showForm]);
 
   // Create / Update
   const addStaff = async (values, method) => {
@@ -106,9 +109,17 @@ function StaffAdd({ showForm, setShowForm, recordDetail, edit, getStaffs }) {
           },
         }
       );
-      await res.json();
+      const data = await res.json();
       // console.log("addStaff: ", data);
-      getStaffs();
+      if (data.success) {
+        message.success(data.msg);
+        setShowForm(false);
+        getStaffs();
+      } else {
+        for (const key in data) {
+          setErrorMsg((prev) => ({ ...prev, [key]: data[key].msg }));
+        }
+      }
     } catch (err) {
       console.error("addStaff: ", err);
     }
@@ -116,6 +127,7 @@ function StaffAdd({ showForm, setShowForm, recordDetail, edit, getStaffs }) {
 
   // submit form
   const handleSubmit = () => {
+    setErrorMsg(initValues);
     form
       .validateFields()
       .then((values) => {
@@ -123,10 +135,8 @@ function StaffAdd({ showForm, setShowForm, recordDetail, edit, getStaffs }) {
           ...values,
           dob: moment(values.dob.$d).format("DD/MM/YYYY"),
         };
-        form.resetFields();
         if (edit) addStaff(updatedValues, "PATCH");
         else addStaff(updatedValues, "POST");
-        setShowForm(false);
       })
       .catch((info) => {
         console.log("Validate Failed:", info);
@@ -154,7 +164,7 @@ function StaffAdd({ showForm, setShowForm, recordDetail, edit, getStaffs }) {
         labelCol={{ span: 24 }}
         wrapperCol={{ span: 24 }}
         layout="horizontal"
-        name="formAdd"
+        name="form"
         scrollToFirstError
         autoComplete="off"
       >
@@ -173,6 +183,8 @@ function StaffAdd({ showForm, setShowForm, recordDetail, edit, getStaffs }) {
                   message: "Tên nhân viên phải có ít nhất 2 kí tự",
                 },
               ]}
+              validateStatus={errorMsg.name && "error"}
+              help={errorMsg.name ? errorMsg.name : null}
             >
               <Input placeholder="Nhập tên nhân viên" />
             </Form.Item>
@@ -193,6 +205,8 @@ function StaffAdd({ showForm, setShowForm, recordDetail, edit, getStaffs }) {
                   message: "Số điện thoại phải không quá 12 kí tự",
                 },
               ]}
+              validateStatus={errorMsg.phone_number && "error"}
+              help={errorMsg.phone_number ? errorMsg.phone_number : null}
             >
               <Input type="number" placeholder="Nhập số điện thoại" />
             </Form.Item>
@@ -205,6 +219,8 @@ function StaffAdd({ showForm, setShowForm, recordDetail, edit, getStaffs }) {
                   message: "Level không được bỏ trống",
                 },
               ]}
+              validateStatus={errorMsg.level && "error"}
+              help={errorMsg.level ? errorMsg.level : null}
             >
               <Select
                 placeholder="Chọn level"
@@ -225,10 +241,13 @@ function StaffAdd({ showForm, setShowForm, recordDetail, edit, getStaffs }) {
                   message: "Giới tính không được bỏ trống",
                 },
               ]}
+              validateStatus={errorMsg.gender && "error"}
+              help={errorMsg.gender ? errorMsg.gender : null}
             >
               <Select placeholder="Chọn giới tính">
                 <Select.Option value="male">Nam</Select.Option>
                 <Select.Option value="female">Nữ</Select.Option>
+                <Select.Option value="another">Khác</Select.Option>
               </Select>
             </Form.Item>
           </Col>
@@ -243,6 +262,8 @@ function StaffAdd({ showForm, setShowForm, recordDetail, edit, getStaffs }) {
                   message: "Ngày sinh không được bỏ trống",
                 },
               ]}
+              validateStatus={errorMsg.dob && "error"}
+              help={errorMsg.dob ? errorMsg.dob : null}
             >
               <DatePicker
                 placeholder="DD/MM/YYYY"

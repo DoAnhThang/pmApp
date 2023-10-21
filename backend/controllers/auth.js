@@ -3,17 +3,26 @@ const bcrypt = require("bcryptjs");
 
 const User = require("../models/user");
 
-exports.getAuth = (req, res, next) => {
-  if (req.session.user) {
-    return res.json({
-      isAuth: req.session.isAuthenticated,
-      username: req.session.user.username,
-    });
-  } else {
-    return res.json({
+exports.getAuth = async (req, res, next) => {
+  if (!req.session.user) {
+    return res.status(400).json({
       isAuth: false,
       msg: "Phiên cũ đã kết thúc, vui lòng đăng nhập lại",
     });
+  }
+  try {
+    const user = await User.findOne({ email: req.session.user.email });
+    if (!user) {
+      return res.status(400).json({
+        email: { msg: "Tài khoản không hợp lệ hoặc đã bị thay đổi" },
+      });
+    }
+    return res.status(200).json({
+      isAuth: true,
+      username: user.username,
+    });
+  } catch (err) {
+    next(err);
   }
 };
 
@@ -21,7 +30,7 @@ exports.postSignup = async (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     const errorObj = errors.mapped();
-    return res.status(422).json(errorObj);
+    return res.status(400).json(errorObj);
   }
 
   const username = req.body.username
@@ -33,11 +42,11 @@ exports.postSignup = async (req, res, next) => {
   const agreement = req.body.agreement;
 
   if (passwordConfirm !== password)
-    return res.status(422).json({
+    return res.status(400).json({
       passwordConfirm: { msg: "Mật khẩu xác nhận không khớp" },
     });
   if (agreement === false)
-    return res.status(422).json({
+    return res.status(400).json({
       agreement: { msg: "Vui lòng đồng ý với các điều khoản và điều kiện" },
     });
 

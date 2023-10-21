@@ -18,6 +18,7 @@ function StaffList({
   setShowForm,
   setEdit,
   deleteRecord,
+  setSelectedRowKeys,
 }) {
   const dataSource = staffs.map((record) => ({
     ...record,
@@ -70,16 +71,25 @@ function StaffList({
       title: "Giới tính",
       dataIndex: "gender",
       filters: [
-        { text: "Nam", value: "Nam" },
-        { text: "Nữ", value: "Nữ" },
+        { text: "Nam", value: "male" },
+        { text: "Nữ", value: "female" },
+        { text: "Khác", value: "another" },
       ],
-      onFilter: (text, record) => record.gender === text,
-      render: (text) => <span>{text === "female" ? "Nữ" : "Nam"}</span>,
+      onFilter: (value, record) => record.gender === value,
+      render: (text) => (
+        <span>
+          {text === "male" ? "Nam" : text === "female" ? "Nữ" : "Khác"}
+        </span>
+      ),
     },
     {
       title: "Bộ phận",
       dataIndex: "department",
       render: (text) => <span>{text.length > 0 ? text[0].name : ""}</span>,
+      filterDropdown: filterDropdownSearch,
+      filterIcon: () => <SearchOutlined />,
+      onFilter: (text, record) =>
+        record.phone_number.toLowerCase().includes(text.toLowerCase()),
     },
     {
       title: "Các tech stack",
@@ -120,6 +130,7 @@ function StaffList({
         total: totalRecords,
         pageSizeOptions: [5, 10, 15],
         showSizeChanger: true,
+        size: "default",
         onChange: (page, pageSize) => {
           setPage(page);
           setPageSize(pageSize);
@@ -131,6 +142,10 @@ function StaffList({
         emptyText: (
           <Empty description="Không có dữ liệu" imageStyle={{ height: 60 }} />
         ),
+      }}
+      rowSelection={{
+        onChange: (newSelectedRowKeys) =>
+          setSelectedRowKeys(newSelectedRowKeys),
       }}
     />
   );

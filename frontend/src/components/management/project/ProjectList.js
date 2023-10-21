@@ -18,6 +18,7 @@ function ProjectList({
   setShowForm,
   setEdit,
   deleteRecord,
+  setSelectedRowKeys,
 }) {
   const dataSource = projects.map((record) => ({
     ...record,
@@ -126,6 +127,7 @@ function ProjectList({
         total: totalRecords,
         pageSizeOptions: [5, 10, 15],
         showSizeChanger: true,
+        size: "default",
         onChange: (page, pageSize) => {
           setPage(page);
           setPageSize(pageSize);
@@ -137,6 +139,10 @@ function ProjectList({
         emptyText: (
           <Empty description="Không có dữ liệu" imageStyle={{ height: 60 }} />
         ),
+      }}
+      rowSelection={{
+        onChange: (newSelectedRowKeys) =>
+          setSelectedRowKeys(newSelectedRowKeys),
       }}
     />
   );

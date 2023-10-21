@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { Col, Form, Input, Modal, Row, Select } from "antd";
+import { Col, Form, Input, Modal, Row, Select, message } from "antd";
 import { SERVER_URL } from "../../../api/api";
 
-const initFormAdd = {
-  name: "",
-  feature: "",
-  tech_stacks: [],
-  projects: [],
-  staffs: [],
+const initValues = {
+  name: null,
+  feature: null,
+  tech_stacks: null,
+  projects: null,
+  staffs: null,
 };
 
 function DepartmentAdd({
@@ -22,6 +22,7 @@ function DepartmentAdd({
   const [techStacks, setTechStacks] = useState([]);
   const [projects, setProjects] = useState([]);
   const [staffs, setStaffs] = useState([]);
+  const [errorMsg, setErrorMsg] = useState(initValues);
 
   // get data for select form
   const getTechStacks = async () => {
@@ -78,11 +79,12 @@ function DepartmentAdd({
         projects: recordDetail.projects.map((item) => item._id),
         staffs: recordDetail.staffs.map((item) => item._id),
       });
-    else form.setFieldsValue(initFormAdd);
+    else form.resetFields();
     getTechStacks();
     getProjects();
     getStaffs();
-  }, [form, edit, recordDetail]);
+    setErrorMsg(initValues);
+  }, [form, edit, recordDetail, showForm]);
 
   // Create / Update
   const addDepartment = async (values, method) => {
@@ -98,9 +100,17 @@ function DepartmentAdd({
           },
         }
       );
-      await res.json();
+      const data = await res.json();
       // console.log("addDepartment: ", data);
-      getDepartments();
+      if (data.success) {
+        message.success(data.msg);
+        setShowForm(false);
+        getDepartments();
+      } else {
+        for (const key in data) {
+          setErrorMsg((prev) => ({ ...prev, [key]: data[key].msg }));
+        }
+      }
     } catch (err) {
       console.error("addDepartment: ", err);
     }
@@ -108,14 +118,12 @@ function DepartmentAdd({
 
   // submit form
   const handleSubmit = () => {
+    setErrorMsg(initValues);
     form
       .validateFields()
       .then((values) => {
-        // console.log("values: ", values);
-        form.resetFields();
         if (edit) addDepartment(values, "PATCH");
         else addDepartment(values, "POST");
-        setShowForm(false);
       })
       .catch((info) => {
         console.log("Validate Failed:", info);
@@ -141,7 +149,7 @@ function DepartmentAdd({
         labelCol={{ span: 24 }}
         wrapperCol={{ span: 24 }}
         layout="horizontal"
-        name="formAdd"
+        name="form"
         scrollToFirstError
       >
         <Row gutter={24}>
@@ -159,6 +167,8 @@ function DepartmentAdd({
                   message: "Tên bộ phận, phòng ban phải có ít nhất 2 kí tự",
                 },
               ]}
+              validateStatus={errorMsg.name && "error"}
+              help={errorMsg.name ? errorMsg.name : null}
             >
               <Input placeholder="Nhập tên bộ phận, phòng ban" />
             </Form.Item>
@@ -171,6 +181,8 @@ function DepartmentAdd({
                   message: "Chức năng, nhiệm vụ không được bỏ trống",
                 },
               ]}
+              validateStatus={errorMsg.feature && "error"}
+              help={errorMsg.feature ? errorMsg.feature : null}
             >
               <Input.TextArea
                 rows={5}

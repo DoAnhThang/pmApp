@@ -1,128 +1,43 @@
 const mongoose = require("mongoose");
+const { validationResult } = require("express-validator");
 const Department = require("../models/department");
 const Staff = require("../models/staff");
 const Project = require("../models/project");
-
-const updateDepartmentInProjects = async (departmentId, projectObjectIds) => {
-  try {
-    // Cập nhật các project chứa departmentId và xóa departmentId này khỏi departments
-    await Project.updateMany(
-      { departments: departmentId },
-      { $pull: { departments: departmentId } }
-    );
-    // Thêm departmentId vào các project có id thuộc mảng projectObjectIds
-    await Project.updateMany(
-      { _id: { $in: projectObjectIds } },
-      { $push: { departments: departmentId } }
-    );
-  } catch (error) {
-    console.error(error);
-  }
-};
-const updateDepartmentInStaffs = async (departmentId, staffObjectIds) => {
-  try {
-    await Staff.updateMany(
-      { department: departmentId },
-      { $pull: { department: departmentId } }
-    );
-    await Staff.updateMany(
-      { _id: { $in: staffObjectIds } },
-      { $push: { department: departmentId } }
-    );
-  } catch (error) {
-    console.error(error);
-  }
-};
-const updateStaffInDepartments = async (staffId, departmentObjectIds) => {
-  try {
-    await Department.updateMany(
-      { staffs: staffId },
-      { $pull: { staffs: staffId } }
-    );
-    await Department.updateMany(
-      { _id: { $in: departmentObjectIds } },
-      { $push: { staffs: staffId } }
-    );
-  } catch (error) {
-    console.error(error);
-  }
-};
-const updateStaffInProjects = async (staffId, projectObjectIds) => {
-  try {
-    await Project.updateMany(
-      { staffs: staffId },
-      { $pull: { staffs: staffId } }
-    );
-    await Project.updateMany(
-      { _id: { $in: projectObjectIds } },
-      { $push: { staffs: staffId } }
-    );
-  } catch (error) {
-    console.error(error);
-  }
-};
-const updateProjectInDepartments = async (projectId, departmentObjectIds) => {
-  try {
-    await Department.updateMany(
-      { projects: projectId },
-      { $pull: { projects: projectId } }
-    );
-    await Department.updateMany(
-      { _id: { $in: departmentObjectIds } },
-      { $push: { projects: projectId } }
-    );
-  } catch (error) {
-    console.error(error);
-  }
-};
-const updateProjectInStaffs = async (projectId, staffObjectIds) => {
-  try {
-    await Staff.updateMany(
-      { projects: projectId },
-      { $pull: { projects: projectId } }
-    );
-    await Staff.updateMany(
-      { _id: { $in: staffObjectIds } },
-      { $push: { projects: projectId } }
-    );
-  } catch (error) {
-    console.error(error);
-  }
-};
+const { paginateDataWithPopulate } = require("../utilities/pagination");
+const {
+  updateFieldInModel,
+  removeDocumentAndUpdateModels,
+} = require("../utilities/update-management");
 
 // management CRUD: Departments
 exports.getDepartments = async (req, res, next) => {
   const page = Number(req.query.page);
   const pageSize = Number(req.query.pageSize);
   try {
-    const totalDepartments = await Department.countDocuments();
-    if (totalDepartments === 0) {
-      return res.json({ msg: "Not found departments" });
-    }
-    if (page && pageSize) {
-      const totalPages = Math.ceil(totalDepartments / pageSize);
-      const paginatedData = await Department.find()
-        .skip((page - 1) * pageSize)
-        .limit(pageSize)
-        .populate("tech_stacks", "name")
-        .populate("projects", "name")
-        .populate("staffs", "name");
-      res.status(200).json({
-        success: true,
-        data: paginatedData,
-        currentPage: page,
-        totalPages,
-        totalDepartments,
-      });
-    } else {
-      const departments = await Department.find({}, "_id name");
-      res.status(200).json({ success: true, data: departments });
-    }
+    const populateOptions = [
+      { path: "tech_stacks", select: "name" },
+      { path: "projects", select: "name" },
+      { path: "staffs", select: "name" },
+    ];
+    const result = await paginateDataWithPopulate(
+      Department,
+      page,
+      pageSize,
+      populateOptions,
+      "_id name"
+    );
+    res.status(result.msg ? 204 : 200).json(result);
   } catch (err) {
     next(err);
   }
 };
 exports.postDepartment = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const errorObj = errors.mapped();
+    return res.status(400).json(errorObj);
+  }
+
   const name = req.body.name;
   const feature = req.body.feature;
   const tech_stacks = req.body.tech_stacks
@@ -143,8 +58,8 @@ exports.postDepartment = async (req, res, next) => {
       staffs: staffs,
     });
     const newDepartment = await department.save();
-    updateDepartmentInProjects(newDepartment._id, projects);
-    updateDepartmentInStaffs(newDepartment._id, staffs);
+    updateFieldInModel("departments", Project, newDepartment._id, projects);
+    updateFieldInModel("department", Staff, newDepartment._id, staffs);
     res.status(201).json({
       success: true,
       msg: "Created successfully!",
@@ -154,6 +69,12 @@ exports.postDepartment = async (req, res, next) => {
   }
 };
 exports.patchDepartment = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const errorObj = errors.mapped();
+    return res.status(400).json(errorObj);
+  }
+
   const departmentId = req.params.departmentId;
   const name = req.body.name;
   const feature = req.body.feature;
@@ -177,8 +98,8 @@ exports.patchDepartment = async (req, res, next) => {
     department.projects = projects;
     department.staffs = staffs;
     await department.save();
-    updateDepartmentInProjects(departmentId, projects);
-    updateDepartmentInStaffs(departmentId, staffs);
+    updateFieldInModel("departments", Project, departmentId, projects);
+    updateFieldInModel("department", Staff, departmentId, staffs);
     res.status(201).json({
       success: true,
       msg: "Updated successfully!",
@@ -188,27 +109,25 @@ exports.patchDepartment = async (req, res, next) => {
   }
 };
 exports.deleteDepartment = async (req, res, next) => {
-  const departmentId = req.params.departmentId;
+  const recordIds = req.body.ids;
   try {
-    const department = await Department.findById(departmentId);
-    if (!department) {
-      return res.status(204).json({ errorMsg: "Not found the department" });
-    }
-    await Department.findByIdAndRemove(departmentId);
-    await Project.updateMany(
-      { departments: departmentId },
-      { $pull: { departments: departmentId } }
+    const modelsNeedUpdateField = [
+      { model: Staff, field: "department" },
+      { model: Project, field: "departments" },
+    ];
+    const result = await Promise.all(
+      recordIds.map(
+        async (id) =>
+          await removeDocumentAndUpdateModels(
+            Department,
+            id,
+            modelsNeedUpdateField
+          )
+      )
     );
-    await Staff.updateMany(
-      { department: departmentId },
-      { $pull: { department: departmentId } }
-    );
-    res.status(200).json({
-      success: true,
-      msg: "Deleted successfully!",
-    });
-  } catch (err) {
-    next(err);
+    res.status(result[0].errorMsg ? 404 : 200).json(result[0]);
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -217,34 +136,30 @@ exports.getStaffs = async (req, res, next) => {
   const page = Number(req.query.page);
   const pageSize = Number(req.query.pageSize);
   try {
-    const totalStaffs = await Staff.countDocuments();
-    if (totalStaffs === 0) {
-      return res.json({ msg: "Not found staffs" });
-    }
-    if (page && pageSize) {
-      const totalPages = Math.ceil(totalStaffs / pageSize);
-      const paginatedData = await Staff.find()
-        .skip((page - 1) * pageSize)
-        .limit(pageSize)
-        .populate("department", "name")
-        .populate("tech_stacks.tech_stack_id", "name")
-        .populate("projects", "name");
-      res.status(200).json({
-        success: true,
-        data: paginatedData,
-        currentPage: page,
-        totalPages,
-        totalStaffs,
-      });
-    } else {
-      const staffs = await Staff.find({}, "_id name department");
-      res.status(200).json({ success: true, data: staffs });
-    }
+    const populateOptions = [
+      { path: "department", select: "name" },
+      { path: "tech_stacks.tech_stack_id", select: "name" },
+      { path: "projects", select: "name" },
+    ];
+    const result = await paginateDataWithPopulate(
+      Staff,
+      page,
+      pageSize,
+      populateOptions,
+      "_id name department"
+    );
+    res.status(result.msg ? 204 : 200).json(result);
   } catch (err) {
     next(err);
   }
 };
 exports.postStaff = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const errorObj = errors.mapped();
+    return res.status(400).json(errorObj);
+  }
+
   const name = req.body.name;
   const dob = req.body.dob;
   const phone_number = req.body.phone_number;
@@ -274,8 +189,8 @@ exports.postStaff = async (req, res, next) => {
       projects: projects,
     });
     const newStaff = await staff.save();
-    updateStaffInDepartments(newStaff._id, department);
-    updateStaffInProjects(newStaff._id, projects);
+    updateFieldInModel("staffs", Department, newStaff._id, department);
+    updateFieldInModel("staffs", Project, newStaff._id, projects);
     res.status(201).json({
       success: true,
       msg: "Created successfully!",
@@ -285,6 +200,12 @@ exports.postStaff = async (req, res, next) => {
   }
 };
 exports.patchStaff = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const errorObj = errors.mapped();
+    return res.status(400).json(errorObj);
+  }
+
   const staffId = req.params.staffId;
   const name = req.body.name;
   const dob = req.body.dob;
@@ -317,8 +238,8 @@ exports.patchStaff = async (req, res, next) => {
     staff.tech_stacks = tech_stacks;
     staff.projects = projects;
     await staff.save();
-    updateStaffInDepartments(staffId, department);
-    updateStaffInProjects(staffId, projects);
+    updateFieldInModel("staffs", Department, staffId, department);
+    updateFieldInModel("staffs", Project, staffId, projects);
     res.status(201).json({
       success: true,
       msg: "Updated successfully!",
@@ -328,25 +249,19 @@ exports.patchStaff = async (req, res, next) => {
   }
 };
 exports.deleteStaff = async (req, res, next) => {
-  const staffId = req.params.staffId;
+  const recordIds = req.body.ids;
   try {
-    const staff = await Staff.findById(staffId);
-    if (!staff) {
-      return res.status(204).json({ errorMsg: "Not found the staff" });
-    }
-    await Staff.findByIdAndRemove(staffId);
-    await Department.updateMany(
-      { staffs: staffId },
-      { $pull: { staffs: staffId } }
+    const modelsNeedUpdateField = [
+      { model: Department, field: "staffs" },
+      { model: Project, field: "staffs" },
+    ];
+    const result = await Promise.all(
+      recordIds.map(
+        async (id) =>
+          await removeDocumentAndUpdateModels(Staff, id, modelsNeedUpdateField)
+      )
     );
-    await Project.updateMany(
-      { staffs: staffId },
-      { $pull: { staffs: staffId } }
-    );
-    res.status(200).json({
-      success: true,
-      msg: "Deleted successfully!",
-    });
+    res.status(result[0].errorMsg ? 404 : 200).json(result[0]);
   } catch (err) {
     next(err);
   }
@@ -357,32 +272,22 @@ exports.getProjects = async (req, res, next) => {
   const page = Number(req.query.page);
   const pageSize = Number(req.query.pageSize);
   try {
-    const totalProjects = await Project.countDocuments();
-    if (totalProjects === 0) {
-      return res.json({ msg: "Not found projects" });
-    }
-    if (page && pageSize) {
-      const totalPages = Math.ceil(totalProjects / pageSize);
-      const paginatedData = await Project.find()
-        .skip((page - 1) * pageSize)
-        .limit(pageSize)
-        .populate("project_type", "name")
-        .populate("project_status", "name")
-        .populate("customer_group", "name")
-        .populate("tech_stacks", "name")
-        .populate("departments", "name")
-        .populate("staffs", "name");
-      res.status(200).json({
-        success: true,
-        data: paginatedData,
-        currentPage: page,
-        totalPages,
-        totalProjects,
-      });
-    } else {
-      const projects = await Project.find({}, "_id name");
-      res.status(200).json({ success: true, data: projects });
-    }
+    const populateOptions = [
+      { path: "project_type", select: "name" },
+      { path: "project_status", select: "name" },
+      { path: "customer_group", select: "name" },
+      { path: "tech_stacks", select: "name" },
+      { path: "departments", select: "name" },
+      { path: "staffs", select: "name" },
+    ];
+    const result = await paginateDataWithPopulate(
+      Project,
+      page,
+      pageSize,
+      populateOptions,
+      "_id name"
+    );
+    res.status(result.msg ? 204 : 200).json(result);
   } catch (err) {
     next(err);
   }
@@ -409,6 +314,12 @@ exports.getProjectDetail = async (req, res, next) => {
   }
 };
 exports.postProject = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const errorObj = errors.mapped();
+    return res.status(400).json(errorObj);
+  }
+
   const name = req.body.name;
   const startTime = req.body.startTime;
   const endTime = req.body.endTime;
@@ -443,8 +354,8 @@ exports.postProject = async (req, res, next) => {
       staffs: staffs,
     });
     const newProject = await project.save();
-    updateProjectInDepartments(newProject._id, departments);
-    updateProjectInStaffs(newProject._id, staffs);
+    updateFieldInModel("projects", Department, newProject._id, departments);
+    updateFieldInModel("projects", Staff, newProject._id, staffs);
     res.status(201).json({
       success: true,
       msg: "Created successfully!",
@@ -454,6 +365,12 @@ exports.postProject = async (req, res, next) => {
   }
 };
 exports.patchProject = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    const errorObj = errors.mapped();
+    return res.status(400).json(errorObj);
+  }
+
   const projectId = req.params.projectId;
   const name = req.body.name;
   const startTime = req.body.startTime;
@@ -491,8 +408,8 @@ exports.patchProject = async (req, res, next) => {
     project.departments = departments;
     project.staffs = staffs;
     await project.save();
-    updateProjectInDepartments(projectId, departments);
-    updateProjectInStaffs(projectId, staffs);
+    updateFieldInModel("projects", Department, projectId, departments);
+    updateFieldInModel("projects", Staff, projectId, staffs);
     res.status(201).json({
       success: true,
       msg: "Updated successfully!",
@@ -502,25 +419,23 @@ exports.patchProject = async (req, res, next) => {
   }
 };
 exports.deleteProject = async (req, res, next) => {
-  const projectId = req.params.projectId;
+  const recordIds = req.body.ids;
   try {
-    const project = await Project.findById(projectId);
-    if (!project) {
-      return res.status(204).json({ errorMsg: "Not found the project" });
-    }
-    await Project.findByIdAndRemove(projectId);
-    await Department.updateMany(
-      { projects: projectId },
-      { $pull: { projects: projectId } }
+    const modelsNeedUpdateField = [
+      { model: Department, field: "projects" },
+      { model: Staff, field: "projects" },
+    ];
+    const result = await Promise.all(
+      recordIds.map(
+        async (id) =>
+          await removeDocumentAndUpdateModels(
+            Project,
+            id,
+            modelsNeedUpdateField
+          )
+      )
     );
-    await Staff.updateMany(
-      { projects: projectId },
-      { $pull: { projects: projectId } }
-    );
-    res.status(200).json({
-      success: true,
-      msg: "Deleted successfully!",
-    });
+    res.status(result[0].errorMsg ? 404 : 200).json(result[0]);
   } catch (err) {
     next(err);
   }

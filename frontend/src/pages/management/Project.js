@@ -6,6 +6,7 @@ import ProjectList from "../../components/management/project/ProjectList";
 import ProjectAdd from "../../components/management/project/ProjectAdd";
 import ProjectDetail from "../../components/management/project/ProjectDetail";
 import { SERVER_URL, recordsPerPage } from "../../api/api";
+import { message } from "antd";
 
 function Project() {
   const [loading, setLoading] = useState(false);
@@ -17,6 +18,7 @@ function Project() {
   const [recordDetail, setRecordDetail] = useState({});
   const [showForm, setShowForm] = useState(false);
   const [edit, setEdit] = useState(false);
+  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
   // get projects
   const getProjects = async () => {
@@ -30,7 +32,7 @@ function Project() {
       // console.log("getProjects:", data);
       if (data.success) {
         setProjects(data.data);
-        setTotalRecords(data.totalProjects);
+        setTotalRecords(data.totalRecords);
       } else setProjects([]);
       setLoading(false);
     } catch (err) {
@@ -39,16 +41,23 @@ function Project() {
   };
 
   // delete project
-  const deleteRecord = async (id) => {
+  const deleteRecord = async (ids) => {
     try {
       // eslint-disable-next-line no-unused-vars
-      const res = await fetch(`${SERVER_URL}/management/project/${id}`, {
+      const res = await fetch(`${SERVER_URL}/management/project`, {
         credentials: "include",
         method: "DELETE",
+        body: JSON.stringify({ ids: ids }),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
-      // const data = await res.json();
+      const data = await res.json();
       // console.log("deleteProject: ", data);
+      if (data.success) message.success(data.msg);
+      else message.error(data.errorMsg);
       getProjects();
+      setSelectedRowKeys([]);
     } catch (err) {
       console.error("deleteProject: ", err);
     }
@@ -66,6 +75,8 @@ function Project() {
         setShowForm={setShowForm}
         setEdit={setEdit}
         isShowButton={true}
+        selectedRowKeys={selectedRowKeys}
+        deleteRecord={deleteRecord}
       />
 
       <ProjectList
@@ -81,6 +92,7 @@ function Project() {
         setShowForm={setShowForm}
         setEdit={setEdit}
         deleteRecord={deleteRecord}
+        setSelectedRowKeys={setSelectedRowKeys}
       />
 
       <ProjectAdd

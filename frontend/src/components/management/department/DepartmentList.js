@@ -18,6 +18,7 @@ function DepartmentList({
   setShowForm,
   setEdit,
   deleteRecord,
+  setSelectedRowKeys,
 }) {
   const dataSource = departments.map((record) => ({
     ...record,
@@ -91,6 +92,7 @@ function DepartmentList({
         total: totalRecords,
         pageSizeOptions: [5, 10, 15],
         showSizeChanger: true,
+        size: "default",
         onChange: (page, pageSize) => {
           setPage(page);
           setPageSize(pageSize);
@@ -102,6 +104,10 @@ function DepartmentList({
         emptyText: (
           <Empty description="Không có dữ liệu" imageStyle={{ height: 60 }} />
         ),
+      }}
+      rowSelection={{
+        onChange: (newSelectedRowKeys) =>
+          setSelectedRowKeys(newSelectedRowKeys),
       }}
     />
   );

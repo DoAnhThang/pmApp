@@ -6,6 +6,7 @@ import DirectoryList from "../../components/directory/DirectoryList";
 import DirectoryAdd from "../../components/directory/DirectoryAdd";
 import DirectoryDetail from "../../components/directory/DirectoryDetail";
 import { SERVER_URL, recordsPerPage } from "../../api/api";
+import { message } from "antd";
 
 function TechStack() {
   const [loading, setLoading] = useState(false);
@@ -17,6 +18,7 @@ function TechStack() {
   const [recordDetail, setRecordDetail] = useState({});
   const [showForm, setShowForm] = useState(false);
   const [edit, setEdit] = useState(false);
+  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
   // get tech stacks
   const getTechStacks = async () => {
@@ -29,7 +31,7 @@ function TechStack() {
       // console.log("getTechStacks:", data);
       if (data.success) {
         setTechStacks(data.data);
-        setTotalRecords(data.totalTechStacks);
+        setTotalRecords(data.totalRecords);
       }
       setLoading(false);
     } catch (error) {
@@ -42,15 +44,23 @@ function TechStack() {
   }, [page, pageSize]);
 
   // delete tech stack
-  const deleteRecord = async (id) => {
+  const deleteRecord = async (ids) => {
     try {
-      const res = await fetch(`${SERVER_URL}/directory/tech-stack/${id}`, {
+      // eslint-disable-next-line no-unused-vars
+      const res = await fetch(`${SERVER_URL}/directory/tech-stack`, {
         credentials: "include",
         method: "DELETE",
+        body: JSON.stringify({ ids: ids }),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
       const data = await res.json();
-      console.log("deleteTechStack: ", data);
+      // console.log("deleteTechStack: ", data);
+      if (data.success) message.success(data.msg);
+      else message.error(data.errorMsg);
       getTechStacks();
+      setSelectedRowKeys([]);
     } catch (err) {
       console.error("deleteTechStack: ", err);
     }
@@ -64,6 +74,8 @@ function TechStack() {
         setShowForm={setShowForm}
         setEdit={setEdit}
         isShowButton={true}
+        selectedRowKeys={selectedRowKeys}
+        deleteRecord={deleteRecord}
       />
 
       <DirectoryList
@@ -80,6 +92,7 @@ function TechStack() {
         setEdit={setEdit}
         deleteRecord={deleteRecord}
         priority={false}
+        setSelectedRowKeys={setSelectedRowKeys}
       />
 
       {/* Modal cho "Tạo mới" và "Sửa" */}

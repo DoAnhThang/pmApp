@@ -23,9 +23,9 @@ import AppSider from "./AppSider";
 
 const items = [
   { type: "divider" },
-  { key: "0", label: "Profile", icon: <UserOutlined /> },
+  { key: "0", label: "Hồ sơ", icon: <UserOutlined /> },
   { type: "divider" },
-  { key: "1", label: "Settings", icon: <SettingFilled /> },
+  { key: "1", label: "Cài đặt", icon: <SettingFilled /> },
   { type: "divider" },
 ];
 
@@ -38,6 +38,7 @@ function AppHeader({
 }) {
   const [todos, setTodos] = useState([]);
   const [todosOpen, setTodosOpen] = useState(false);
+  const [todosBadge, setTodosBadge] = useState(true);
   // const [quotes, setQuotes] = useState([]);
   // const [quotesOpen, setQuotesOpen] = useState(false);
 
@@ -49,6 +50,17 @@ function AppHeader({
     //   .then((res) => res.json())
     //   .then((data) => setQuotes(data.quotes));
   }, []);
+
+  const displayUsername = () => {
+    const splitedUsername = activeUser.split(" ");
+    if (splitedUsername.length === 1)
+      return splitedUsername[0].slice(0, 2).toUpperCase();
+    else if (splitedUsername.length > 1)
+      return (
+        splitedUsername[0].slice(0, 1).toUpperCase() +
+        splitedUsername[1].slice(0, 1).toUpperCase()
+      );
+  };
 
   return (
     <>
@@ -91,16 +103,19 @@ function AppHeader({
 
       {/* Notification */}
       {isLogin && (
-        <Space size={32} className="pt-3">
+        <Space size={32} className="pt-2">
           <Tooltip title="Thông báo" placement="bottom">
             <Badge
-              count={todos.length}
+              count={todosBadge ? todos.length : 0}
               offset={[5, 0]}
-              className="cursor-pointer"
+              size="small"
             >
               <BellOutlined
+                onClick={() => {
+                  setTodosOpen(true);
+                  setTodosBadge(false);
+                }}
                 className="fs-5 text-white"
-                onClick={() => setTodosOpen(true)}
               />
             </Badge>
           </Tooltip>
@@ -139,11 +154,15 @@ function AppHeader({
             ></List>
           </Drawer> */}
 
-          <Dropdown menu={{ items }} trigger={["click"]}>
-            <div style={{ marginTop: "-1rem" }}>
+          <Dropdown
+            menu={{ items }}
+            trigger={["click"]}
+            placement="bottomRight"
+          >
+            <div style={{ marginTop: "-0.75rem" }}>
               <Button type="link">
                 <Avatar className="fw-bold border border-2 bg-primary">
-                  {activeUser.slice(0, 2).toUpperCase()}
+                  {displayUsername()}
                 </Avatar>
                 <DownOutlined />
               </Button>

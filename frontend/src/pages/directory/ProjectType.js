@@ -6,6 +6,7 @@ import DirectoryList from "../../components/directory/DirectoryList";
 import DirectoryAdd from "../../components/directory/DirectoryAdd";
 import DirectoryDetail from "../../components/directory/DirectoryDetail";
 import { SERVER_URL, recordsPerPage } from "../../api/api";
+import { message } from "antd";
 
 function ProjectType() {
   const [loading, setLoading] = useState(false);
@@ -17,6 +18,7 @@ function ProjectType() {
   const [recordDetail, setRecordDetail] = useState({});
   const [showForm, setShowForm] = useState(false);
   const [edit, setEdit] = useState(false);
+  const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 
   // get project types
   const getProjectTypes = async () => {
@@ -29,7 +31,7 @@ function ProjectType() {
       // console.log("getProjectTypes:", data);
       if (data.success) {
         setProjectTypes(data.data);
-        setTotalRecords(data.totalProjectTypes);
+        setTotalRecords(data.totalRecords);
       }
       setLoading(false);
     } catch (err) {
@@ -42,15 +44,23 @@ function ProjectType() {
   }, [page, pageSize]);
 
   // delete project type
-  const deleteRecord = async (id) => {
+  const deleteRecord = async (ids) => {
     try {
-      const res = await fetch(`${SERVER_URL}/directory/project-type/${id}`, {
+      // eslint-disable-next-line no-unused-vars
+      const res = await fetch(`${SERVER_URL}/directory/project-type`, {
         credentials: "include",
         method: "DELETE",
+        body: JSON.stringify({ ids: ids }),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
       const data = await res.json();
-      console.log("deleteProjectType: ", data);
+      // console.log("deleteProjectType: ", data);
+      if (data.success) message.success(data.msg);
+      else message.error(data.errorMsg);
       getProjectTypes();
+      setSelectedRowKeys([]);
     } catch (err) {
       console.error("deleteProjectType: ", err);
     }
@@ -64,6 +74,8 @@ function ProjectType() {
         setShowForm={setShowForm}
         setEdit={setEdit}
         isShowButton={true}
+        selectedRowKeys={selectedRowKeys}
+        deleteRecord={deleteRecord}
       />
 
       <DirectoryList
@@ -80,6 +92,7 @@ function ProjectType() {
         setEdit={setEdit}
         deleteRecord={deleteRecord}
         priority={true}
+        setSelectedRowKeys={setSelectedRowKeys}
       />
 
       {/* Modal cho "Tạo mới" và "Sửa" */}

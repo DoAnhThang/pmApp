@@ -9,6 +9,8 @@
 
 /* Utilities */
 :root {
+  --black-pearl: #001529;
+  --cyan-blue: #0d6efd;
   --pale-blue: #cfe2ff;
 }
 .fs-7 {
@@ -19,6 +21,9 @@
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.bg-blackPearl {
+  background-color: var(--black-pearl);
 }
 .bg-paleBlue {
   background-color: var(--pale-blue);
@@ -52,7 +57,7 @@ button:disabled {
   margin-bottom: 1rem;
 }
 .page-icon {
-  color: #0d6efd;
+  color: var(--cyan-blue);
   background-color: var(--pale-blue);
   border-radius: 0.5rem;
   padding: 0.5rem;
@@ -63,7 +68,12 @@ button:disabled {
 }
 .mobileVisible {
   display: none;
-  padding: 0.5rem 0.6rem 0.4rem 0.6rem;
+  padding: 0.4rem 0.5rem 0.25rem 0.5rem;
+}
+.mobileVisible:hover {
+  background-color: whitesmoke;
+  color: var(--black-pearl);
+  border-radius: 50%;
 }
 .ant-table {
   width: 100%;
@@ -80,14 +90,5 @@ button:disabled {
   }
   .mobileVisible {
     display: block;
-  }
-  .mobileVisible:hover {
-    background-color: whitesmoke;
-    color: #001529;
-    border-radius: 50%;
-  }
-  .ant-drawer .ant-drawer-close,
-  .ant-drawer .ant-drawer-title {
-    color: whitesmoke !important;
   }
 }

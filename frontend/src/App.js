@@ -31,6 +31,8 @@ function App() {
           window.location.pathname === "/login"
         ) {
           return null;
+        } else if (window.location.pathname === "/") {
+          navigate("/login");
         } else {
           message.error(data.msg);
           navigate("/login");

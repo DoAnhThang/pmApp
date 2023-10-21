@@ -18,6 +18,7 @@ function DirectoryList({
   setEdit,
   deleteRecord,
   priority,
+  setSelectedRowKeys,
 }) {
   const dataSource = directories.map((record) => ({
     ...record,
@@ -38,12 +39,12 @@ function DirectoryList({
       filterIcon: () => <SearchOutlined />,
       onFilter: (text, record) =>
         record.name.toLowerCase().includes(text.toLowerCase()),
-      sorter: (a, b) =>
-        a.name.toLowerCase() > b.name.toLowerCase()
-          ? 1
-          : a.name.toLowerCase() === b.name.toLowerCase()
-          ? 0
-          : -1,
+      // sorter: (a, b) =>
+      //   a.name.toLowerCase() > b.name.toLowerCase()
+      //     ? 1
+      //     : a.name.toLowerCase() === b.name.toLowerCase()
+      //     ? 0
+      //     : -1,
     },
     {
       title: "Mô tả ngắn",
@@ -113,6 +114,7 @@ function DirectoryList({
         total: totalRecords,
         pageSizeOptions: [5, 10, 15],
         showSizeChanger: true,
+        size: "default",
         onChange: (page, pageSize) => {
           setPage(page);
           setPageSize(pageSize);
@@ -124,6 +126,10 @@ function DirectoryList({
         emptyText: (
           <Empty description="Không có dữ liệu" imageStyle={{ height: 60 }} />
         ),
+      }}
+      rowSelection={{
+        onChange: (newSelectedRowKeys) =>
+          setSelectedRowKeys(newSelectedRowKeys),
       }}
     />
   );

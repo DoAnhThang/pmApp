@@ -11,7 +11,7 @@ function Actions({
   record,
 }) {
   return (
-    <Space wrap={false}>
+    <Space direction="horizontal" wrap={false}>
       <Tooltip title="Xem chi tiết">
         <Button
           type="primary"
@@ -40,7 +40,7 @@ function Actions({
         title="Bạn có chắc chắn muốn xóa không?"
         okText="Vẫn xóa"
         cancelText="Đóng"
-        onConfirm={() => deleteRecord(record._id)}
+        onConfirm={() => deleteRecord([record._id])}
       >
         <Tooltip title="Xóa">
           <Button
