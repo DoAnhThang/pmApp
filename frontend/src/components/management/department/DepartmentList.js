@@ -1,9 +1,8 @@
 import React from "react";
-import { SearchOutlined } from "@ant-design/icons";
 import { Empty, Table } from "antd";
 import TagDisplay from "../../UI/TagDisplay";
 import Actions from "../../UI/Actions";
-import { filterDropdownSearch } from "../../../api/api";
+import { useGetColumnSearchProps } from "../../../api/api";
 
 function DepartmentList({
   loading,
@@ -35,18 +34,12 @@ function DepartmentList({
     {
       title: "Tên",
       dataIndex: "name",
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.name.toLowerCase().includes(text.toLowerCase()),
+      ...useGetColumnSearchProps("name"),
     },
     {
       title: "Chức năng, nhiệm vụ",
       dataIndex: "feature",
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.feature.toLowerCase().includes(text.toLowerCase()),
+      ...useGetColumnSearchProps("feature"),
     },
     {
       title: "Các tech stack",
@@ -90,8 +83,8 @@ function DepartmentList({
         current: page,
         pageSize: pageSize,
         total: totalRecords,
-        pageSizeOptions: [5, 10, 15],
         showSizeChanger: true,
+        pageSizeOptions: [5, 10, 15],
         size: "default",
         onChange: (page, pageSize) => {
           setPage(page);

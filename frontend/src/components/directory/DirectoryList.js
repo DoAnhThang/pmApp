@@ -1,8 +1,7 @@
 import React from "react";
 import { Empty, Table } from "antd";
-import { SearchOutlined } from "@ant-design/icons";
 import Actions from "../UI/Actions";
-import { filterDropdownSearch } from "../../api/api";
+import { useGetColumnSearchProps } from "../../api/api";
 
 function DirectoryList({
   loading,
@@ -35,24 +34,11 @@ function DirectoryList({
     {
       title: "Tên",
       dataIndex: "name",
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.name.toLowerCase().includes(text.toLowerCase()),
-      // sorter: (a, b) =>
-      //   a.name.toLowerCase() > b.name.toLowerCase()
-      //     ? 1
-      //     : a.name.toLowerCase() === b.name.toLowerCase()
-      //     ? 0
-      //     : -1,
+      ...useGetColumnSearchProps("name"),
     },
     {
       title: "Mô tả ngắn",
       dataIndex: "short_desc",
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.short_desc.toLowerCase().includes(text.toLowerCase()),
       render: (text) => (
         <span>
           {text.length > 150 ? text.substring(0, 100) + " ..." : text}
@@ -112,8 +98,8 @@ function DirectoryList({
         current: page,
         pageSize: pageSize,
         total: totalRecords,
-        pageSizeOptions: [5, 10, 15],
         showSizeChanger: true,
+        pageSizeOptions: [5, 10, 15],
         size: "default",
         onChange: (page, pageSize) => {
           setPage(page);

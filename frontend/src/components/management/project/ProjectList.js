@@ -1,9 +1,8 @@
 import React from "react";
-import { SearchOutlined } from "@ant-design/icons";
 import { Empty, Table } from "antd";
 import TagDisplay from "../../UI/TagDisplay";
 import Actions from "../../UI/Actions";
-import { filterDropdownSearch } from "../../../api/api";
+import { useGetColumnSearchProps } from "../../../api/api";
 
 function ProjectList({
   loading,
@@ -35,53 +34,32 @@ function ProjectList({
     {
       title: "Tên",
       dataIndex: "name",
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.name.toLowerCase().includes(text.toLowerCase()),
+      ...useGetColumnSearchProps("name"),
     },
     {
       title: "Ngày bắt đầu",
       dataIndex: "startTime",
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.startTime.toLowerCase().includes(text.toLowerCase()),
+      ...useGetColumnSearchProps("startTime"),
     },
     {
       title: "Ngày kết thúc",
       dataIndex: "endTime",
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.endTime.toLowerCase().includes(text.toLowerCase()),
+      ...useGetColumnSearchProps("endTime"),
     },
     {
       title: "Loại dự án",
       dataIndex: "project_type",
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.project_type.toLowerCase().includes(text.toLowerCase()),
-      render: (text) => <span>{text.length > 0 ? text[0].name : ""}</span>,
+      ...useGetColumnSearchProps("project_type"),
     },
     {
       title: "Trạng thái dự án",
       dataIndex: "project_status",
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.project_status.toLowerCase().includes(text.toLowerCase()),
-      render: (text) => <span>{text.length > 0 ? text[0].name : ""}</span>,
+      ...useGetColumnSearchProps("project_status"),
     },
     {
       title: "Nhóm khách hàng",
       dataIndex: "customer_group",
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.customer_group.toLowerCase().includes(text.toLowerCase()),
-      render: (text) => <span>{text.length > 0 ? text[0].name : ""}</span>,
+      ...useGetColumnSearchProps("customer_group"),
     },
     {
       title: "Các tech stack",
@@ -125,8 +103,8 @@ function ProjectList({
         current: page,
         pageSize: pageSize,
         total: totalRecords,
-        pageSizeOptions: [5, 10, 15],
         showSizeChanger: true,
+        pageSizeOptions: [5, 10, 15],
         size: "default",
         onChange: (page, pageSize) => {
           setPage(page);

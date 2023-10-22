@@ -1,9 +1,8 @@
 import React from "react";
-import { SearchOutlined } from "@ant-design/icons";
 import { Empty, Table } from "antd";
 import TagDisplay from "../../UI/TagDisplay";
 import Actions from "../../UI/Actions";
-import { filterDropdownSearch } from "../../../api/api";
+import { useGetColumnSearchProps } from "../../../api/api";
 
 function StaffList({
   loading,
@@ -35,26 +34,17 @@ function StaffList({
     {
       title: "Tên",
       dataIndex: "name",
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.name.toLowerCase().includes(text.toLowerCase()),
+      ...useGetColumnSearchProps("name"),
     },
     {
       title: "Ngày sinh",
       dataIndex: "dob",
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.dob.toLowerCase().includes(text.toLowerCase()),
+      ...useGetColumnSearchProps("dob"),
     },
     {
       title: "Số điện thoại",
       dataIndex: "phone_number",
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.phone_number.toLowerCase().includes(text.toLowerCase()),
+      ...useGetColumnSearchProps("phone_number"),
     },
     {
       title: "Level",
@@ -85,11 +75,7 @@ function StaffList({
     {
       title: "Bộ phận",
       dataIndex: "department",
-      render: (text) => <span>{text.length > 0 ? text[0].name : ""}</span>,
-      filterDropdown: filterDropdownSearch,
-      filterIcon: () => <SearchOutlined />,
-      onFilter: (text, record) =>
-        record.phone_number.toLowerCase().includes(text.toLowerCase()),
+      ...useGetColumnSearchProps("department"),
     },
     {
       title: "Các tech stack",
@@ -128,8 +114,8 @@ function StaffList({
         current: page,
         pageSize: pageSize,
         total: totalRecords,
-        pageSizeOptions: [5, 10, 15],
         showSizeChanger: true,
+        pageSizeOptions: [5, 10, 15],
         size: "default",
         onChange: (page, pageSize) => {
           setPage(page);

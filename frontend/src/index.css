@@ -9,9 +9,10 @@
 
 /* Utilities */
 :root {
-  --black-pearl: #001529;
   --cyan-blue: #0d6efd;
   --pale-blue: #cfe2ff;
+  --highlight-color: #ffc069;
+  --black-pearl: #001529;
 }
 .fs-7 {
   font-size: 0.85rem;
@@ -22,11 +23,14 @@
 .cursor-pointer {
   cursor: pointer;
 }
-.bg-blackPearl {
-  background-color: var(--black-pearl);
-}
 .bg-paleBlue {
   background-color: var(--pale-blue);
+}
+.bg-highlight {
+  background-color: var(--highlight-color);
+}
+.bg-blackPearl {
+  background-color: var(--black-pearl);
 }
 button:disabled {
   cursor: not-allowed;

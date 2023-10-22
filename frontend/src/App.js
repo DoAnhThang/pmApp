@@ -26,6 +26,7 @@ function App() {
         setIsLogin(true);
         setActiveUser(data.username);
       } else if (data.isAuth === false) {
+        setIsLogin(false);
         if (
           window.location.pathname === "/signup" ||
           window.location.pathname === "/login"
