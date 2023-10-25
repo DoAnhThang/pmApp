@@ -1,12 +1,13 @@
 const express = require("express");
 const { body } = require("express-validator");
 
+const isAuth = require("../middleware/is-auth");
 const authController = require("../controllers/auth");
 const User = require("../models/user");
 
 const router = express.Router();
 
-router.get("/auth", authController.getAuth);
+router.get("/auth", isAuth, authController.getAuth);
 
 router.post(
   "/signup",

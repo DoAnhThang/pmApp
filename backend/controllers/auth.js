@@ -1,5 +1,6 @@
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
 const User = require("../models/user");
 
@@ -86,6 +87,12 @@ exports.postLogin = async (req, res, next) => {
         .json({ password: { msg: "Mật khẩu không chính xác" } });
     }
 
+    const token = jwt.sign(
+      { email: user.email, userId: user._id.toString() },
+      process.env.TOKEN_SECRET_KEY,
+      { expiresIn: "24h" }
+    );
+    req.session.token = token;
     req.session.isAuthenticated = true;
     req.session.user = {
       _id: user._id,
