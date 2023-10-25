@@ -5,25 +5,25 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
 exports.getAuth = async (req, res, next) => {
-  if (!req.session.user) {
-    return res.status(400).json({
+  if (!req.session.isAuthenticated || !req.session.user) {
+    return res.status(401).json({
       isAuth: false,
       msg: "Phiên cũ đã kết thúc, vui lòng đăng nhập lại",
     });
   }
   try {
-    const user = await User.findOne({ email: req.session.user.email });
+    const user = await User.findById(req.session.user._id);
     if (!user) {
-      return res.status(400).json({
-        email: { msg: "Tài khoản không hợp lệ hoặc đã bị thay đổi" },
+      return res.status(404).json({
+        email: { msg: "Tài khoản không tồn tại hoặc đã bị thay đổi" },
       });
     }
     return res.status(200).json({
       isAuth: true,
       username: user.username,
     });
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -63,8 +63,8 @@ exports.postSignup = async (req, res, next) => {
       success: true,
       msg: "Đăng ký tài khoản thành công",
     });
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 };
 
@@ -90,7 +90,7 @@ exports.postLogin = async (req, res, next) => {
     const token = jwt.sign(
       { email: user.email, userId: user._id.toString() },
       process.env.TOKEN_SECRET_KEY,
-      { expiresIn: "24h" }
+      { expiresIn: "1h" }
     );
     req.session.token = token;
     req.session.isAuthenticated = true;
@@ -108,8 +108,8 @@ exports.postLogin = async (req, res, next) => {
         username: req.session.user.username,
       });
     });
-  } catch (err) {
-    next(err);
+  } catch (error) {
+    next(error);
   }
 };
 

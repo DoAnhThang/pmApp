@@ -7,7 +7,7 @@ const User = require("../models/user");
 
 const router = express.Router();
 
-router.get("/auth", isAuth, authController.getAuth);
+router.get("/auth", authController.getAuth);
 
 router.post(
   "/signup",
